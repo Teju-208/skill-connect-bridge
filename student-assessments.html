@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge - Assessments</title>
+
+    <!-- Your existing CSS is NOT modified -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================
+           STUDENT ASSESSMENTS PAGE
+           All styles are scoped to .student-assessment-page
+           so existing pages/design are not disturbed.
+        ===================================================== */
+
+        .student-assessment-page {
+            min-height: 100vh;
+            background: #f7f8fc;
+            color: #222;
+        }
+
+        .student-assessment-page * {
+            box-sizing: border-box;
+        }
+
+        /* Header */
+
+        .student-assessment-page .assessment-header {
+            width: 100%;
+            min-height: 70px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            border-bottom: 1px solid #e8e8ef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .student-assessment-page .assessment-logo {
+            font-size: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #222;
+        }
+
+        .student-assessment-page .assessment-logo span {
+            color: #6c63ff;
+        }
+
+        .student-assessment-page .assessment-nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .student-assessment-page .assessment-nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .student-assessment-page .assessment-nav a:hover {
+            color: #6c63ff;
+        }
+
+        .student-assessment-page .assessment-nav a.active {
+            color: #6c63ff;
+            font-weight: 600;
+        }
+
+        .student-assessment-page .assessment-logout {
+            border: none;
+            background: #6c63ff;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Main */
+
+        .student-assessment-page .assessment-main {
+            width: 88%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 55px 0;
+        }
+
+        .student-assessment-page .assessment-hero {
+            background: linear-gradient(135deg, #6c63ff, #8179ff);
+            color: white;
+            border-radius: 18px;
+            padding: 42px;
+            margin-bottom: 35px;
+        }
+
+        .student-assessment-page .assessment-hero .label {
+            font-size: 13px;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .student-assessment-page .assessment-hero h1 {
+            font-size: 34px;
+            margin: 0 0 12px;
+        }
+
+        .student-assessment-page .assessment-hero p {
+            margin: 0;
+            max-width: 700px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Section heading */
+
+        .student-assessment-page .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .student-assessment-page .section-heading h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .student-assessment-page .section-heading p {
+            margin: 5px 0 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Assessment grid */
+
+        .student-assessment-page .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .student-assessment-page .assessment-card {
+            background: white;
+            border: 1px solid #e8e8ef;
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s ease;
+        }
+
+        .student-assessment-page .assessment-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(40, 40, 80, 0.08);
+        }
+
+        .student-assessment-page .assessment-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: #eeecff;
+            color: #6c63ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .student-assessment-page .assessment-card h3 {
+            margin: 0 0 9px;
+            font-size: 19px;
+        }
+
+        .student-assessment-page .assessment-card .skill {
+            display: inline-block;
+            background: #f0efff;
+            color: #6c63ff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .student-assessment-page .assessment-card .description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 65px;
+        }
+
+        .student-assessment-page .assessment-meta {
+            display: flex;
+            gap: 18px;
+            margin: 17px 0;
+            color: #777;
+            font-size: 13px;
+        }
+
+        .student-assessment-page .take-btn {
+            width: 100%;
+            border: none;
+            background: #6c63ff;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .student-assessment-page .take-btn:hover {
+            background: #574fe0;
+        }
+
+        /* Results */
+
+        .student-assessment-page .results-section {
+            margin-top: 55px;
+        }
+
+        .student-assessment-page .results-card {
+            background: white;
+            border: 1px solid #e8e8ef;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .student-assessment-page .result-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            align-items: center;
+            padding: 18px 22px;
+            border-bottom: 1px solid #eeeeF3;
+            font-size: 14px;
+        }
+
+        .student-assessment-page .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .student-assessment-page .result-header {
+            background: #f7f7fb;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .student-assessment-page .score {
+            font-weight: 700;
+            color: #6c63ff;
+        }
+
+        .student-assessment-page .no-data {
+            background: white;
+            border: 1px solid #e8e8ef;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            color: #777;
+        }
+
+        .student-assessment-page .loading {
+            text-align: center;
+            padding: 45px;
+            color: #777;
+        }
+
+        .student-assessment-page .error-message {
+            background: #fff0f0;
+            border: 1px solid #ffd0d0;
+            color: #c0392b;
+            padding: 15px 18px;
+            border-radius: 9px;
+            margin-bottom: 25px;
+            display: none;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 950px) {
+            .student-assessment-page .assessment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .student-assessment-page .assessment-nav {
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .student-assessment-page .assessment-header {
+                padding: 15px 5%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .student-assessment-page .assessment-nav {
+                order: 3;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .student-assessment-page .assessment-main {
+                width: 92%;
+                padding: 30px 0;
+            }
+
+            .student-assessment-page .assessment-hero {
+                padding: 28px;
+            }
+
+            .student-assessment-page .assessment-hero h1 {
+                font-size: 27px;
+            }
+
+            .student-assessment-page .assessment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .student-assessment-page .result-row {
+                grid-template-columns: 1.5fr 1fr 1fr;
+                gap: 8px;
+            }
+
+            .student-assessment-page .result-row div:nth-child(3) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="student-assessment-page">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="assessment-header">
+
+        <a href="dashboard.html" class="assessment-logo">
+            Skill<span>Bridge</span>
+        </a>
+
+        <nav class="assessment-nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="skills.html">Skills</a>
+            <a href="opportunities.html">Opportunities</a>
+            <a href="learning.html">Learning</a>
+            <a href="student-assessments.html" class="active">
+                Assessments
+            </a>
+        </nav>
+
+        <button class="assessment-logout" onclick="logoutStudent()">
+            Logout
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="assessment-main">
+
+        <!-- Hero -->
+
+        <section class="assessment-hero">
+
+            <div class="label">
+                STUDENT ASSESSMENTS
+            </div>
+
+            <h1>
+                Test Your Skills
+            </h1>
+
+            <p>
+                Take assessments created by faculty members,
+                measure your knowledge, identify skill gaps,
+                and track your career readiness.
+            </p>
+
+        </section>
+
+
+        <!-- Error -->
+
+        <div id="errorMessage" class="error-message"></div>
+
+
+        <!-- Available Assessments -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Available Assessments</h2>
+                    <p>
+                        Choose an assessment and test your knowledge.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div id="assessmentGrid" class="assessment-grid">
+
+                <div class="loading">
+                    Loading assessments...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Previous Results -->
+
+        <section class="results-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Your Results</h2>
+                    <p>
+                        Track your previous assessment performance.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div id="resultsContainer">
+
+                <div class="loading">
+                    Loading results...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         Does not modify script.js
+    ====================================================== -->
+
+    <script>
+
+        /*
+         * Get logged-in student ID
+         */
+        function getStudentId() {
+
+            return localStorage.getItem("userId");
+
+        }
+
+
+        /*
+         * Logout
+         */
+        function logoutStudent() {
+
+            if (typeof logoutUser === "function") {
+
+                logoutUser();
+
+            } else {
+
+                localStorage.removeItem("userId");
+                localStorage.removeItem("userName");
+                localStorage.removeItem("userEmail");
+                localStorage.removeItem("role");
+
+            }
+
+            window.location.href = "index.html";
+
+        }
+
+
+        /*
+         * Escape HTML
+         * Prevents unsafe text from being inserted into page.
+         */
+        function escapeHtml(text) {
+
+            if (text === null || text === undefined) {
+                return "";
+            }
+
+            return String(text)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /*
+         * Show error
+         */
+        function showError(message) {
+
+            const box = document.getElementById("errorMessage");
+
+            box.textContent = message;
+            box.style.display = "block";
+
+        }
+
+
+        /*
+         * Load assessments from backend
+         */
+        async function loadStudentAssessments() {
+
+            const grid =
+                document.getElementById("assessmentGrid");
+
+            try {
+
+                const response =
+                    await fetch("/api/student/assessments");
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Unable to load assessments."
+                    );
+
+                }
+
+                const assessments =
+                    await response.json();
+
+
+                if (!assessments || assessments.length === 0) {
+
+                    grid.innerHTML = `
+                        <div class="no-data">
+                            <h3>No assessments available</h3>
+                            <p>
+                                Faculty assessments will appear here
+                                when they are published.
+                            </p>
+                        </div>
+                    `;
+
+                    return;
+
+                }
+
+
+                grid.innerHTML = assessments.map(assessment => {
+
+                    /* DEBUG: Check the ID received from backend */
+                    console.log(
+                        "Assessment received:",
+                        assessment.id,
+                        assessment.title
+                    );
+
+                    const questionCount =
+                        assessment.question_count || 0;
+
+                    return `
+
+                        <div class="assessment-card">
+
+                            <div class="assessment-icon">
+                                ✓
+                            </div>
+
+                            <h3>
+                                ${escapeHtml(assessment.title)}
+                            </h3>
+
+                            <span class="skill">
+                                ${escapeHtml(
+                                    assessment.skill || "General"
+                                )}
+                            </span>
+
+                            <p class="description">
+                                ${escapeHtml(
+                                    assessment.description ||
+                                    "Test your knowledge and improve your skills."
+                                )}
+                            </p>
+
+                            <div class="assessment-meta">
+
+                                <span>
+                                    📝 ${questionCount} Questions
+                                </span>
+
+                                <span>
+                                    🎯 Skill Test
+                                </span>
+
+                            </div>
+
+                            <button
+                                class="take-btn"
+                                onclick="takeAssessment(${assessment.id})"
+                            >
+                                Take Assessment →
+                            </button>
+
+                        </div>
+
+                    `;
+
+                }).join("");
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                grid.innerHTML = "";
+
+                showError(
+                    "Could not load assessments. Make sure the SkillBridge backend is running."
+                );
+
+            }
+
+        }
+
+
+        /*
+         * Open assessment
+         */
+        function takeAssessment(assessmentId) {
+
+            console.log(
+                "Opening assessment ID:",
+                assessmentId
+            );
+
+            window.location.href =
+                "take-assessment.html?id=" + assessmentId;
+
+        }
+
+
+        /*
+         * Load student's previous results
+         */
+        async function loadStudentResults() {
+
+            const container =
+                document.getElementById("resultsContainer");
+
+            const studentId =
+                getStudentId();
+
+
+            if (!studentId) {
+
+                container.innerHTML = `
+                    <div class="no-data">
+                        Please log in to view your assessment results.
+                    </div>
+                `;
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/student/assessment-results/" +
+                        studentId
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Unable to load results."
+                    );
+
+                }
+
+
+                const results =
+                    await response.json();
+
+
+                if (!results || results.length === 0) {
+
+                    container.innerHTML = `
+                        <div class="no-data">
+                            <h3>No results yet</h3>
+                            <p>
+                                Complete an assessment and your score
+                                will appear here.
+                            </p>
+                        </div>
+                    `;
+
+                    return;
+
+                }
+
+
+                container.innerHTML = `
+
+                    <div class="results-card">
+
+                        <div class="result-row result-header">
+
+                            <div>Assessment</div>
+                            <div>Score</div>
+                            <div>Status</div>
+                            <div>Date</div>
+
+                        </div>
+
+                        ${results.map(result => {
+
+                            const score =
+                                Number(result.score || 0);
+
+                            let status = "Needs Improvement";
+
+                            if (score >= 80) {
+                                status = "Excellent";
+                            } else if (score >= 60) {
+                                status = "Good";
+                            }
+
+                            return `
+
+                                <div class="result-row">
+
+                                    <div>
+                                        ${escapeHtml(
+                                            result.assessment_title ||
+                                            result.title ||
+                                            "Assessment"
+                                        )}
+                                    </div>
+
+                                    <div class="score">
+                                        ${score}%
+                                    </div>
+
+                                    <div>
+                                        ${status}
+                                    </div>
+
+                                    <div>
+                                        ${result.created_at
+                                            ? new Date(
+                                                result.created_at
+                                            ).toLocaleDateString()
+                                            : "-"
+                                        }
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }).join("")}
+
+                    </div>
+
+                `;
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                container.innerHTML = `
+                    <div class="no-data">
+                        Results could not be loaded right now.
+                    </div>
+                `;
+
+            }
+
+        }
+
+
+        /*
+         * Start page
+         */
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadStudentAssessments();
+
+                loadStudentResults();
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

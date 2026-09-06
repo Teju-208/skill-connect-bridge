@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge - Assessments</title>
+
+    <!-- Your existing global JS -->
+    <script src="script.js"></script>
+
+    <style>
+        /* =========================================================
+           FACULTY ASSESSMENTS PAGE
+           All CSS is scoped to .assessment-page
+           It will NOT disturb other pages.
+        ========================================================= */
+
+        .assessment-page {
+            margin: 0;
+            min-height: 100vh;
+            background: #f7f5ff;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+        }
+
+        .assessment-page * {
+            box-sizing: border-box;
+        }
+
+        /* HEADER */
+
+        .assessment-page .assessment-header {
+            height: 72px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .assessment-page .assessment-logo {
+            font-size: 30px;
+            font-weight: 800;
+            color: #5b4bdb;
+            text-decoration: none;
+        }
+
+        .assessment-page .assessment-nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .assessment-page .assessment-nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.2s ease;
+        }
+
+        .assessment-page .assessment-nav a:hover,
+        .assessment-page .assessment-nav a.active {
+            color: #5b4bdb;
+        }
+
+        /* MAIN */
+
+        .assessment-page .assessment-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding-bottom: 70px;
+        }
+
+        .assessment-page .assessment-intro {
+            padding: 55px 0 30px;
+        }
+
+        .assessment-page .assessment-label {
+            color: #5b4bdb;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+
+        .assessment-page .assessment-intro h1 {
+            margin: 0 0 10px;
+            font-size: 42px;
+            color: #171717;
+        }
+
+        .assessment-page .assessment-intro p {
+            margin: 0;
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* TWO COLUMN LAYOUT */
+
+        .assessment-page .assessment-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        /* CARDS */
+
+        .assessment-page .assessment-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(76, 60, 150, 0.08);
+            margin-bottom: 25px;
+        }
+
+        .assessment-page .assessment-card h2 {
+            margin: 0 0 7px;
+            font-size: 24px;
+            color: #171717;
+        }
+
+        .assessment-page .assessment-card > p {
+            color: #777;
+            margin: 0 0 25px;
+            line-height: 1.5;
+        }
+
+        /* FORM */
+
+        .assessment-page .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
+
+        .assessment-page .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 7px;
+        }
+
+        .assessment-page input,
+        .assessment-page textarea,
+        .assessment-page select {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            background: #fff;
+            color: #222;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s ease;
+        }
+
+        .assessment-page textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .assessment-page input:focus,
+        .assessment-page textarea:focus,
+        .assessment-page select:focus {
+            border-color: #6c63ff;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.10);
+        }
+
+        /* QUESTION BUILDER */
+
+        .assessment-page .question-box {
+            border: 1px solid #e5e2f4;
+            background: #faf9ff;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+        .assessment-page .question-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .assessment-page .question-number {
+            font-size: 17px;
+            font-weight: 700;
+            color: #5b4bdb;
+        }
+
+        .assessment-page .remove-question {
+            border: none;
+            background: #fff0f0;
+            color: #d9534f;
+            padding: 7px 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .assessment-page .remove-question:hover {
+            background: #ffe0e0;
+        }
+
+        .assessment-page .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .assessment-page .correct-answer {
+            margin-top: 15px;
+        }
+
+        /* BUTTONS */
+
+        .assessment-page .btn {
+            border: none;
+            border-radius: 9px;
+            padding: 13px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .assessment-page .primary-btn {
+            background: #5b4bdb;
+            color: #ffffff;
+        }
+
+        .assessment-page .primary-btn:hover {
+            background: #493ac5;
+            transform: translateY(-2px);
+        }
+
+        .assessment-page .secondary-btn {
+            background: #eeeaff;
+            color: #5b4bdb;
+        }
+
+        .assessment-page .secondary-btn:hover {
+            background: #e1dcff;
+        }
+
+        .assessment-page .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* EXISTING ASSESSMENTS */
+
+        .assessment-page .existing-assessment {
+            border: 1px solid #eceaf5;
+            border-radius: 13px;
+            padding: 18px;
+            margin-bottom: 14px;
+            background: #fff;
+        }
+
+        .assessment-page .existing-assessment h3 {
+            margin: 0 0 8px;
+            font-size: 17px;
+            color: #222;
+        }
+
+        .assessment-page .existing-assessment p {
+            margin: 5px 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .assessment-page .skill-badge {
+            display: inline-block;
+            background: #eeeaff;
+            color: #5b4bdb;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .assessment-page .empty-state {
+            text-align: center;
+            padding: 30px 15px;
+            color: #888;
+        }
+
+        .assessment-page .success-message {
+            display: none;
+            padding: 13px 15px;
+            border-radius: 9px;
+            background: #eaf8ef;
+            color: #267a42;
+            margin-top: 18px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .assessment-page .error-message {
+            display: none;
+            padding: 13px 15px;
+            border-radius: 9px;
+            background: #fff0f0;
+            color: #c0392b;
+            margin-top: 18px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+            .assessment-page .assessment-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .assessment-page .assessment-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .assessment-page .assessment-container {
+                width: 92%;
+            }
+
+            .assessment-page .assessment-intro h1 {
+                font-size: 34px;
+            }
+
+            .assessment-page .assessment-card {
+                padding: 22px;
+            }
+
+            .assessment-page .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="assessment-page">
+
+    <!-- HEADER -->
+    <header class="assessment-header">
+
+        <a href="faculty.html" class="assessment-logo">
+            SkillBridge
+        </a>
+
+        <nav class="assessment-nav">
+            <a href="faculty.html">Faculty</a>
+            <a href="faculty-profile.html">Profile</a>
+            <a href="faculty-assessments.html" class="active">Assessments</a>
+            <a href="faculty.html#students">Students</a>
+            <a href="faculty.html#performance">Performance</a>
+            <a href="faculty.html#skill-gaps">Skill Gaps</a>
+            <a href="faculty.html#reports">Reports</a>
+            <a href="login.html" onclick="logoutUser()">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="assessment-container">
+
+        <section class="assessment-intro">
+
+            <div class="assessment-label">
+                FACULTY PORTAL
+            </div>
+
+            <h1>Assessments</h1>
+
+            <p>
+                Create skill assessments and evaluate student performance.
+            </p>
+
+        </section>
+
+
+        <div class="assessment-layout">
+
+            <!-- CREATE ASSESSMENT -->
+            <section class="assessment-card">
+
+                <h2>Create Assessment</h2>
+
+                <p>
+                    Create a new assessment with multiple-choice questions.
+                </p>
+
+
+                <div class="form-group">
+
+                    <label for="assessmentTitle">
+                        Assessment Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="assessmentTitle"
+                        placeholder="Example: Java Fundamentals Assessment"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="assessmentSkill">
+                        Skill
+                    </label>
+
+                    <input
+                        type="text"
+                        id="assessmentSkill"
+                        placeholder="Example: Java"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="assessmentDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="assessmentDescription"
+                        placeholder="Describe what this assessment evaluates..."
+                    ></textarea>
+
+                </div>
+
+
+                <h2 style="font-size:20px; margin-top:25px;">
+                    Questions
+                </h2>
+
+                <div id="questionsContainer"></div>
+
+
+                <div class="button-row">
+
+                    <button
+                        type="button"
+                        class="btn secondary-btn"
+                        onclick="addQuestion()"
+                    >
+                        + Add Question
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn primary-btn"
+                        onclick="createAssessment()"
+                    >
+                        Publish Assessment
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="successMessage"
+                    class="success-message"
+                ></div>
+
+                <div
+                    id="errorMessage"
+                    class="error-message"
+                ></div>
+
+            </section>
+
+
+            <!-- EXISTING ASSESSMENTS -->
+            <section class="assessment-card">
+
+                <h2>My Assessments</h2>
+
+                <p>
+                    Assessments already created by faculty.
+                </p>
+
+                <div id="existingAssessments">
+
+                    <div class="empty-state">
+                        Loading assessments...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const API_URL = "";
+
+        let questionCount = 0;
+
+
+        /* =========================================================
+           GET LOGGED-IN USER
+        ========================================================= */
+
+        function getUserId() {
+
+            const userId =
+                localStorage.getItem("userId");
+
+            return userId;
+        }
+
+
+        /* =========================================================
+           ADD QUESTION
+        ========================================================= */
+
+        function addQuestion() {
+
+            questionCount++;
+
+            const container =
+                document.getElementById("questionsContainer");
+
+            const questionBox =
+                document.createElement("div");
+
+            questionBox.className = "question-box";
+
+            questionBox.id =
+                "questionBox" + questionCount;
+
+            questionBox.innerHTML = `
+
+                <div class="question-header">
+
+                    <div class="question-number">
+                        Question ${questionCount}
+                    </div>
+
+                    <button
+                        type="button"
+                        class="remove-question"
+                        onclick="removeQuestion(${questionCount})"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Question
+                    </label>
+
+                    <input
+                        type="text"
+                        class="question-text"
+                        placeholder="Enter your question"
+                    >
+
+                </div>
+
+
+                <div class="options-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Option A
+                        </label>
+
+                        <input
+                            type="text"
+                            class="option-a"
+                            placeholder="Option A"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Option B
+                        </label>
+
+                        <input
+                            type="text"
+                            class="option-b"
+                            placeholder="Option B"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Option C
+                        </label>
+
+                        <input
+                            type="text"
+                            class="option-c"
+                            placeholder="Option C"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Option D
+                        </label>
+
+                        <input
+                            type="text"
+                            class="option-d"
+                            placeholder="Option D"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group correct-answer">
+
+                    <label>
+                        Correct Answer
+                    </label>
+
+                    <select class="correct-answer-select">
+
+                        <option value="">
+                            Select correct answer
+                        </option>
+
+                        <option value="A">
+                            Option A
+                        </option>
+
+                        <option value="B">
+                            Option B
+                        </option>
+
+                        <option value="C">
+                            Option C
+                        </option>
+
+                        <option value="D">
+                            Option D
+                        </option>
+
+                    </select>
+
+                </div>
+            `;
+
+            container.appendChild(questionBox);
+        }
+
+
+        /* =========================================================
+           REMOVE QUESTION
+        ========================================================= */
+
+        function removeQuestion(id) {
+
+            const question =
+                document.getElementById(
+                    "questionBox" + id
+                );
+
+            if (question) {
+
+                question.remove();
+
+            }
+        }
+
+
+        /* =========================================================
+           CREATE ASSESSMENT
+        ========================================================= */
+
+        async function createAssessment() {
+
+            const title =
+                document.getElementById(
+                    "assessmentTitle"
+                ).value.trim();
+
+            const skill =
+                document.getElementById(
+                    "assessmentSkill"
+                ).value.trim();
+
+            const description =
+                document.getElementById(
+                    "assessmentDescription"
+                ).value.trim();
+
+
+            const success =
+                document.getElementById(
+                    "successMessage"
+                );
+
+            const error =
+                document.getElementById(
+                    "errorMessage"
+                );
+
+
+            success.style.display = "none";
+            error.style.display = "none";
+
+
+            if (!title || !skill) {
+
+                showError(
+                    "Please enter the assessment title and skill."
+                );
+
+                return;
+            }
+
+
+            const questionBoxes =
+                document.querySelectorAll(
+                    ".question-box"
+                );
+
+
+            if (questionBoxes.length === 0) {
+
+                showError(
+                    "Please add at least one question."
+                );
+
+                return;
+            }
+
+
+            const questions = [];
+
+
+            for (const box of questionBoxes) {
+
+                const question =
+                    box.querySelector(
+                        ".question-text"
+                    ).value.trim();
+
+                const optionA =
+                    box.querySelector(
+                        ".option-a"
+                    ).value.trim();
+
+                const optionB =
+                    box.querySelector(
+                        ".option-b"
+                    ).value.trim();
+
+                const optionC =
+                    box.querySelector(
+                        ".option-c"
+                    ).value.trim();
+
+                const optionD =
+                    box.querySelector(
+                        ".option-d"
+                    ).value.trim();
+
+                const correctAnswer =
+                    box.querySelector(
+                        ".correct-answer-select"
+                    ).value;
+
+
+                if (
+                    !question ||
+                    !optionA ||
+                    !optionB ||
+                    !optionC ||
+                    !optionD ||
+                    !correctAnswer
+                ) {
+
+                    showError(
+                        "Please complete every question and select the correct answer."
+                    );
+
+                    return;
+                }
+
+
+                questions.push({
+
+                    question: question,
+
+                    option_a: optionA,
+
+                    option_b: optionB,
+
+                    option_c: optionC,
+
+                    option_d: optionD,
+
+                    correct_answer: correctAnswer
+
+                });
+
+            }
+
+
+            const userId =
+                getUserId();
+
+
+            if (!userId) {
+
+                showError(
+                    "Faculty login information was not found. Please login again."
+                );
+
+                return;
+            }
+
+
+            try {
+
+                /* 
+                   First get faculty information.
+                   The backend needs faculty_id, not user_id.
+                */
+
+                const facultyResponse =
+                    await fetch(
+                        `${API_URL}/api/faculty/${userId}`
+                    );
+
+
+                if (!facultyResponse.ok) {
+
+                    throw new Error(
+                        "Could not load faculty information."
+                    );
+
+                }
+
+
+                const faculty =
+                    await facultyResponse.json();
+
+
+                if (!faculty.faculty_id) {
+
+                    throw new Error(
+                        "Faculty profile was not found."
+                    );
+
+                }
+
+
+                /* CREATE ASSESSMENT */
+
+                const response =
+                    await fetch(
+                        `${API_URL}/api/faculty/assessments`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                faculty_id:
+                                    faculty.faculty_id,
+
+                                title:
+                                    title,
+
+                                skill:
+                                    skill,
+
+                                description:
+                                    description,
+
+                                questions:
+                                    questions
+
+                            })
+
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        result.error ||
+                        "Failed to create assessment."
+                    );
+
+                }
+
+
+                showSuccess(
+                    "Assessment published successfully!"
+                );
+
+
+                /* CLEAR FORM */
+
+                document.getElementById(
+                    "assessmentTitle"
+                ).value = "";
+
+                document.getElementById(
+                    "assessmentSkill"
+                ).value = "";
+
+                document.getElementById(
+                    "assessmentDescription"
+                ).value = "";
+
+                document.getElementById(
+                    "questionsContainer"
+                ).innerHTML = "";
+
+                questionCount = 0;
+
+
+                /* ADD A NEW EMPTY QUESTION */
+
+                addQuestion();
+
+
+                /* RELOAD ASSESSMENTS */
+
+                loadAssessments();
+
+            }
+
+            catch (err) {
+
+                console.error(err);
+
+                showError(
+                    err.message ||
+                    "Something went wrong."
+                );
+
+            }
+
+        }
+
+
+        /* =========================================================
+           LOAD ASSESSMENTS
+        ========================================================= */
+
+        async function loadAssessments() {
+
+            const container =
+                document.getElementById(
+                    "existingAssessments"
+                );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_URL}/api/faculty/assessments`
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Unable to load assessments."
+                    );
+
+                }
+
+
+                const assessments =
+                    await response.json();
+
+
+                if (
+                    !Array.isArray(assessments) ||
+                    assessments.length === 0
+                ) {
+
+                    container.innerHTML = `
+
+                        <div class="empty-state">
+
+                            <p>
+                                No assessments created yet.
+                            </p>
+
+                        </div>
+
+                    `;
+
+                    return;
+                }
+
+
+                container.innerHTML =
+                    assessments.map(
+                        assessment => `
+
+                        <div class="existing-assessment">
+
+                            <h3>
+                                ${escapeHtml(
+                                    assessment.title
+                                )}
+                            </h3>
+
+                            <p>
+                                ${escapeHtml(
+                                    assessment.description ||
+                                    "No description provided."
+                                )}
+                            </p>
+
+                            <span class="skill-badge">
+                                ${escapeHtml(
+                                    assessment.skill
+                                )}
+                            </span>
+
+                        </div>
+
+                    `
+                    ).join("");
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                container.innerHTML = `
+
+                    <div class="empty-state">
+
+                        Unable to load assessments.
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MESSAGES
+        ========================================================= */
+
+        function showSuccess(message) {
+
+            const element =
+                document.getElementById(
+                    "successMessage"
+                );
+
+            element.textContent =
+                message;
+
+            element.style.display =
+                "block";
+
+        }
+
+
+        function showError(message) {
+
+            const element =
+                document.getElementById(
+                    "errorMessage"
+                );
+
+            element.textContent =
+                message;
+
+            element.style.display =
+                "block";
+
+        }
+
+
+        /* =========================================================
+           SECURITY / HTML ESCAPING
+        ========================================================= */
+
+        function escapeHtml(value) {
+
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* =========================================================
+           PAGE START
+        ========================================================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                addQuestion();
+
+                loadAssessments();
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

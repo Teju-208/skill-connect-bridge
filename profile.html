@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile - SkillBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        Skill<span>Bridge</span>
+    </div>
+
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html" class="active">Profile</a>
+        <a href="skills.html">Skills</a>
+        <a href="opportunities.html">Opportunities</a>
+        <a href="learning.html">Learning</a>
+    </nav>
+
+    <button class="logout-btn" onclick="logoutUser()">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="dashboard">
+
+    <section class="welcome-section">
+
+        <p class="small-label">
+            STUDENT PROFILE
+        </p>
+
+        <h1>
+            My Profile
+        </h1>
+
+        <p>
+            Manage your information and career preferences
+            to get better recommendations from SkillBridge.
+        </p>
+
+    </section>
+
+
+    <section class="dashboard-grid">
+
+        <!-- PROFILE INFORMATION -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+                    <h2>Personal Information</h2>
+
+                    <p>
+                        Your basic profile details
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="profile-info">
+
+                <div class="input-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="profileName"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="profileEmail"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Phone</label>
+
+                    <input
+                        type="tel"
+                        id="profilePhone"
+                        placeholder="Enter phone number"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Location</label>
+
+                    <input
+                        type="text"
+                        id="profileLocation"
+                        placeholder="Enter your location"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="savePersonalProfile()"
+            >
+                Save Profile
+            </button>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <h2>Education</h2>
+
+                    <p>
+                        Tell us about your academic background
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-info">
+
+                <div class="input-group">
+
+                    <label>Degree</label>
+
+                    <input
+                        type="text"
+                        id="profileDegree"
+                        value="B.Tech"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Specialization</label>
+
+                    <input
+                        type="text"
+                        id="profileSpecialization"
+                        value="Artificial Intelligence"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>College / University</label>
+
+                    <input
+                        type="text"
+                        id="profileCollege"
+                        placeholder="Enter college name"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Graduation Year</label>
+
+                    <input
+                        type="number"
+                        id="profileGraduation"
+                        value="2029"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="saveEducation()"
+            >
+                Save Education
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAREER GOALS -->
+
+    <section class="dashboard-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <h2>Career Goals</h2>
+
+                <p>
+                    Help SkillBridge understand what career you want.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-info">
+
+            <div class="input-group">
+
+                <label>Target Career</label>
+
+                <select id="targetCareer">
+
+                    <option>Software Developer</option>
+
+                    <option>AI / ML Engineer</option>
+
+                    <option>Data Scientist</option>
+
+                    <option>Web Developer</option>
+
+                    <option>Cloud Engineer</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Preferred Industry</label>
+
+                <select id="preferredIndustry">
+
+                    <option>Information Technology</option>
+
+                    <option>Artificial Intelligence</option>
+
+                    <option>Software Development</option>
+
+                    <option>FinTech</option>
+
+                    <option>Healthcare Technology</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button class="primary-btn" onclick="saveProfileData(localStorage.getItem('userId'))">
+            Save Career Preferences
+        </button>
+
+    </section>
+
+
+    <!-- RESUME / AI SKILL EXTRACTION -->
+
+    <section class="dashboard-card" style="margin-top: 24px;">
+
+        <div class="card-heading">
+            <div>
+                <h2>Resume & AI Skill Extraction</h2>
+                <p>Upload your resume and SkillBridge will extract skills automatically.</p>
+            </div>
+        </div>
+
+        <div class="profile-info">
+            <div class="input-group">
+                <label for="resumeFile">Resume (PDF or TXT, max 5 MB)</label>
+                <input
+                    type="file"
+                    id="resumeFile"
+                    accept=".pdf,.txt,application/pdf,text/plain"
+                >
+            </div>
+        </div>
+
+        <button
+            type="button"
+            class="primary-btn"
+            id="analyzeResumeBtn"
+            onclick="analyzeResume()"
+        >
+            Analyze Resume with NLP
+        </button>
+
+        <p id="resumeStatus" class="ai-note" style="margin-top: 12px;"></p>
+
+        <div id="detectedSkills" style="margin-top: 12px;"></div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 SkillBridge. Build skills. Bridge opportunities.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

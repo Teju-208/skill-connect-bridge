@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Opportunities - SkillBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        Skill<span>Bridge</span>
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <a href="skills.html">
+            Skills
+        </a>
+
+        <a href="opportunities.html"
+           class="active">
+            Opportunities
+        </a>
+
+        <a href="learning.html">
+            Learning
+        </a>
+
+    </nav>
+
+
+    <button
+        class="logout-btn"
+        onclick="logoutUser()">
+
+        Logout
+
+    </button>
+
+</header>
+
+
+
+<main class="dashboard">
+
+
+    <section class="welcome-section">
+
+        <p class="small-label">
+            CAREER OPPORTUNITIES
+        </p>
+
+        <h1>
+            Find Your Opportunities 💼
+        </h1>
+
+        <p>
+            Discover internships and entry-level opportunities
+            that match your skills and career interests.
+        </p>
+
+    </section>
+
+
+
+    <!-- SEARCH -->
+
+    <section class="dashboard-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <h2>
+                    Search Opportunities
+                </h2>
+
+                <p>
+                    Search by role, skill or technology.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-info">
+
+            <div class="input-group">
+
+                <label>
+                    Search
+                </label>
+
+                <input
+                    type="text"
+                    id="opportunitySearch"
+                    placeholder="Example: Java, Python, Web Developer">
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    Opportunity Type
+                </label>
+
+                <select id="opportunityType">
+
+                    <option value="">
+                        All Opportunities
+                    </option>
+
+                    <option value="Internship">
+                        Internship
+                    </option>
+
+                    <option value="Entry Level">
+                        Entry Level Job
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="searchOpportunities()">
+
+            Search Opportunities
+
+        </button>
+
+    </section>
+
+
+
+    <!-- OPPORTUNITIES -->
+
+    <section
+        class="dashboard-grid"
+        id="opportunitiesContainer">
+
+
+        <!-- Opportunities will load from database -->
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 SkillBridge. Build skills. Bridge opportunities.
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

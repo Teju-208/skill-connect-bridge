@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - SkillBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        Skill<span>Bridge</span>
+    </div>
+
+    <nav>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <a href="skills.html">Skills</a>
+        <a href="opportunities.html">Opportunities</a>
+        <a href="learning.html">Learning</a>
+        <a href="student-assessments.html">Assessments</a>
+    </nav>
+
+    <button class="logout-btn"
+            onclick="logoutUser()">
+        Logout
+    </button>
+
+</header>
+
+
+<main class="dashboard">
+
+
+    <!-- WELCOME SECTION -->
+
+    <section class="welcome-section">
+
+        <p class="small-label">
+            STUDENT DASHBOARD
+        </p>
+
+        <h1 id="dashboardWelcome">
+            Welcome to SkillBridge 👋
+        </h1>
+
+        <p>
+            Build your skills, discover your skill gaps,
+            learn effectively and find the right career opportunities.
+        </p>
+
+        <button class="primary-btn"
+                onclick="window.location.href='skills.html'">
+
+            Check My Skills
+
+        </button>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <h3>
+                Skill Score
+            </h3>
+
+            <strong id="dashboardSkillScore">
+                0%
+            </strong>
+
+            <p>
+                Overall skill level
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📚
+            </div>
+
+            <h3>
+                Learning
+            </h3>
+
+            <strong id="dashboardCourseCount">
+                0
+            </strong>
+
+            <p>
+                Courses recommended
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💼
+            </div>
+
+            <h3>
+                Opportunities
+            </h3>
+
+            <strong id="dashboardOpportunityCount">
+                0
+            </strong>
+
+            <p>
+                Available opportunities
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏆
+            </div>
+
+            <h3>
+                Achievements
+            </h3>
+
+            <strong>
+                4
+            </strong>
+
+            <p>
+                Keep progressing
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- DASHBOARD CONTENT -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- SKILL OVERVIEW -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="small-label">
+                        SKILL DEVELOPMENT
+                    </p>
+
+                    <h2>
+                        Your Skill Overview
+                    </h2>
+
+                    <p>
+                        Keep improving your technical skills
+                        to become career ready.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="dashboardSkills">
+
+                <p>
+                    Loading skills...
+                </p>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="window.location.href='skills.html'">
+
+                View My Skills
+
+            </button>
+
+        </div>
+
+
+        <!-- RECOMMENDED LEARNING -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="small-label">
+                        RECOMMENDED
+                    </p>
+
+                    <h2>
+                        Learning For You
+                    </h2>
+
+                    <p>
+                        Courses selected based on your
+                        current skill gaps.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="dashboardCourses">
+
+                <p>
+                    Loading courses...
+                </p>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="window.location.href='learning.html'">
+
+                Explore Learning
+
+            </button>
+
+        </div>
+
+
+        <!-- OPPORTUNITIES -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="small-label">
+                        CAREER
+                    </p>
+
+                    <h2>
+                        Career Opportunities
+                    </h2>
+
+                    <p>
+                        Find opportunities that match
+                        your skills and interests.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="dashboardOpportunities">
+
+                <p>
+                    Loading opportunities...
+                </p>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="window.location.href='opportunities.html'">
+
+                View Opportunities
+
+            </button>
+
+        </div>
+
+
+        <!-- ASSESSMENTS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="small-label">
+                        SKILL ASSESSMENT
+                    </p>
+
+                    <h2>
+                        Take Assessments
+                    </h2>
+
+                    <p>
+                        Test your skills and measure your
+                        readiness for your career.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    Complete assessments created by faculty
+                    and track your performance.
+                </p>
+
+            </div>
+
+
+            <button class="primary-btn"
+                    onclick="window.location.href='student-assessments.html'">
+
+                View Assessments
+
+            </button>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="small-label">
+                        YOUR PROGRESS
+                    </p>
+
+                    <h2>
+                        Keep Going 🚀
+                    </h2>
+
+                    <p>
+                        You're making progress toward
+                        becoming career ready.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Skill Score:
+                <strong id="progressSkillScore">
+                    0%
+                </strong>
+            </p>
+
+            <p>
+                Skills improving:
+                <strong id="progressImproving">
+                    0
+                </strong>
+            </p>
+
+            <p>
+                Courses recommended:
+                <strong id="progressCourses">
+                    0
+                </strong>
+            </p>
+
+            <p>
+                Matching opportunities:
+                <strong id="progressOpportunities">
+                    0
+                </strong>
+            </p>
+
+
+            <button class="primary-btn"
+                    onclick="window.location.href='profile.html'">
+
+                View My Profile
+
+            </button>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 SkillBridge. Build skills. Bridge opportunities.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

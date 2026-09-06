@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Profile - SkillBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="faculty-profile-page">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="faculty-header">
+
+        <a href="index.html" class="logo">
+            Skill<span>Bridge</span>
+        </a>
+
+
+        <nav>
+
+            <a href="faculty.html">
+                Faculty
+            </a>
+
+            <a href="faculty-profile.html"
+               class="active">
+                Profile
+            </a>
+
+            <a href="faculty.html#students">
+                Students
+            </a>
+
+            <a href="faculty.html#performance">
+                Performance
+            </a>
+
+            <a href="faculty.html#gaps">
+                Skill Gaps
+            </a>
+
+            <a href="faculty.html#reports">
+                Reports
+            </a>
+
+        </nav>
+
+
+        <button
+            class="faculty-login-btn"
+            onclick="logoutUser(); window.location.href='index.html';"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN PROFILE
+         ===================================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="profile-header">
+
+            <p class="profile-label">
+                FACULTY PROFILE
+            </p>
+
+
+            <h1>
+                My Profile
+            </h1>
+
+
+            <p>
+                Manage your faculty information and professional details.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PERSONAL INFORMATION
+             ================================================= -->
+
+        <section class="profile-section">
+
+            <h2>
+                Personal Information
+            </h2>
+
+
+            <p>
+                Your basic account information.
+            </p>
+
+
+
+            <div class="form-grid">
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="facultyName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyName"
+                        placeholder="Enter your full name"
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="facultyEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="facultyEmail"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="facultyPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="facultyPhone"
+                        placeholder="Enter phone number"
+                    >
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="facultyLocation">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyLocation"
+                        placeholder="Enter your location"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="savePersonalInformation()"
+            >
+                Save Personal Information
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FACULTY INFORMATION
+             ================================================= -->
+
+        <section class="profile-section">
+
+            <h2>
+                Faculty Information
+            </h2>
+
+
+            <p>
+                Information about your academic role.
+            </p>
+
+
+
+            <div class="form-grid">
+
+
+                <!-- DEPARTMENT -->
+
+                <div class="form-group">
+
+                    <label for="facultyDepartment">
+                        Department
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyDepartment"
+                        placeholder="e.g. Computer Science & Engineering"
+                    >
+
+                </div>
+
+
+
+                <!-- DESIGNATION -->
+
+                <div class="form-group">
+
+                    <label for="facultyDesignation">
+                        Designation
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyDesignation"
+                        placeholder="e.g. Assistant Professor"
+                    >
+
+                </div>
+
+
+
+                <!-- COLLEGE -->
+
+                <div class="form-group full-width">
+
+                    <label for="facultyCollege">
+                        College / Institution
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyCollege"
+                        placeholder="Enter college name"
+                    >
+
+                </div>
+
+
+
+                <!-- FACULTY ID -->
+
+                <div class="form-group">
+
+                    <label for="facultyId">
+                        Faculty ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyId"
+                        placeholder="Faculty ID"
+                        readonly
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="saveFacultyInformation()"
+            >
+                Save Faculty Information
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROFESSIONAL DETAILS
+             ================================================= -->
+
+        <section class="profile-section">
+
+            <h2>
+                Professional Details
+            </h2>
+
+
+            <p>
+                Additional professional information.
+            </p>
+
+
+
+            <div class="form-grid">
+
+
+                <!-- AREA OF EXPERTISE -->
+
+                <div class="form-group">
+
+                    <label for="facultyExpertise">
+                        Area of Expertise
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyExpertise"
+                        placeholder="e.g. Artificial Intelligence"
+                    >
+
+                </div>
+
+
+
+                <!-- EXPERIENCE -->
+
+                <div class="form-group">
+
+                    <label for="facultyExperience">
+                        Experience
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyExperience"
+                        placeholder="e.g. 5 years"
+                    >
+
+                </div>
+
+
+
+                <!-- SUBJECTS -->
+
+                <div class="form-group full-width">
+
+                    <label for="facultySubjects">
+                        Subjects / Courses
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultySubjects"
+                        placeholder="e.g. Python, DBMS, Machine Learning"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="saveProfessionalDetails()"
+            >
+                Save Professional Details
+            </button>
+
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+
+        // =================================================
+        // GET LOGGED-IN USER
+        // =================================================
+
+        const userId =
+            localStorage.getItem("userId");
+
+
+        // =================================================
+        // LOAD FACULTY PROFILE
+        // =================================================
+
+        async function loadFacultyProfile() {
+
+            if (!userId) {
+
+                alert("Please login first.");
+
+                window.location.href = "login.html";
+
+                return;
+
+            }
+
+
+            try {
+
+                const response = await fetch(
+                    `/api/faculty/${userId}`
+                );
+
+
+                const data = await response.json();
+
+
+                if (!response.ok) {
+
+                    alert(
+                        data.message ||
+                        "Unable to load faculty profile."
+                    );
+
+                    return;
+
+                }
+
+
+
+                // -------------------------------
+                // PERSONAL INFORMATION
+                // -------------------------------
+
+                document.getElementById(
+                    "facultyName"
+                ).value = data.name || "";
+
+
+                document.getElementById(
+                    "facultyEmail"
+                ).value = data.email || "";
+
+
+
+                // -------------------------------
+                // FACULTY INFORMATION
+                // -------------------------------
+
+                document.getElementById(
+                    "facultyDepartment"
+                ).value =
+                    data.department || "";
+
+
+                document.getElementById(
+                    "facultyDesignation"
+                ).value =
+                    data.designation || "";
+
+
+                document.getElementById(
+                    "facultyCollege"
+                ).value =
+                    data.college || "";
+
+
+                document.getElementById(
+                    "facultyId"
+                ).value =
+                    data.faculty_id || data.user_id || "";
+
+
+
+                // -------------------------------
+                // LOCAL PROFESSIONAL DATA
+                // -------------------------------
+
+                const savedProfessional =
+                    JSON.parse(
+                        localStorage.getItem(
+                            `facultyProfessional_${userId}`
+                        ) || "{}"
+                    );
+
+
+                document.getElementById(
+                    "facultyPhone"
+                ).value =
+                    savedProfessional.phone || "";
+
+
+                document.getElementById(
+                    "facultyLocation"
+                ).value =
+                    savedProfessional.location || "";
+
+
+                document.getElementById(
+                    "facultyExpertise"
+                ).value =
+                    savedProfessional.expertise || "";
+
+
+                document.getElementById(
+                    "facultyExperience"
+                ).value =
+                    savedProfessional.experience || "";
+
+
+                document.getElementById(
+                    "facultySubjects"
+                ).value =
+                    savedProfessional.subjects || "";
+
+
+            }
+            catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "Cannot connect to SkillBridge server."
+                );
+
+            }
+
+        }
+
+
+
+        // =================================================
+        // SAVE PERSONAL INFORMATION
+        // =================================================
+
+        async function savePersonalInformation() {
+
+            if (!userId) {
+
+                alert("Please login first.");
+
+                return;
+
+            }
+
+
+            const name =
+                document.getElementById(
+                    "facultyName"
+                ).value.trim();
+
+
+            const email =
+                document.getElementById(
+                    "facultyEmail"
+                ).value.trim();
+
+
+            const phone =
+                document.getElementById(
+                    "facultyPhone"
+                ).value.trim();
+
+
+            const location =
+                document.getElementById(
+                    "facultyLocation"
+                ).value.trim();
+
+
+
+            if (!name || !email) {
+
+                alert(
+                    "Name and email are required."
+                );
+
+                return;
+
+            }
+
+
+
+            try {
+
+                const response = await fetch(
+                    `/api/faculty/${userId}`,
+                    {
+                        method: "PUT",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            name: name,
+
+                            email: email
+
+                        })
+
+                    }
+                );
+
+
+                const result =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    alert(
+                        result.message ||
+                        "Unable to save profile."
+                    );
+
+                    return;
+
+                }
+
+
+
+                saveLocalProfessionalData({
+
+                    phone: phone,
+
+                    location: location
+
+                });
+
+
+                localStorage.setItem(
+                    "userName",
+                    name
+                );
+
+
+                localStorage.setItem(
+                    "userEmail",
+                    email
+                );
+
+
+                alert(
+                    "Personal information saved successfully!"
+                );
+
+
+            }
+            catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "Cannot connect to SkillBridge server."
+                );
+
+            }
+
+        }
+
+
+
+        // =================================================
+        // SAVE FACULTY INFORMATION
+        // =================================================
+
+        async function saveFacultyInformation() {
+
+            if (!userId) {
+
+                alert("Please login first.");
+
+                return;
+
+            }
+
+
+            const name =
+                document.getElementById(
+                    "facultyName"
+                ).value.trim();
+
+
+            const email =
+                document.getElementById(
+                    "facultyEmail"
+                ).value.trim();
+
+
+            const department =
+                document.getElementById(
+                    "facultyDepartment"
+                ).value.trim();
+
+
+            const designation =
+                document.getElementById(
+                    "facultyDesignation"
+                ).value.trim();
+
+
+            const college =
+                document.getElementById(
+                    "facultyCollege"
+                ).value.trim();
+
+
+
+            try {
+
+                const response = await fetch(
+                    `/api/faculty/${userId}`,
+                    {
+                        method: "PUT",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            name: name,
+
+                            email: email,
+
+                            department: department,
+
+                            designation: designation,
+
+                            college: college
+
+                        })
+
+                    }
+                );
+
+
+                const result =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    alert(
+                        result.message ||
+                        "Unable to save faculty information."
+                    );
+
+                    return;
+
+                }
+
+
+                alert(
+                    "Faculty information saved successfully!"
+                );
+
+
+            }
+            catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "Cannot connect to SkillBridge server."
+                );
+
+            }
+
+        }
+
+
+
+        // =================================================
+        // SAVE PROFESSIONAL DETAILS
+        // =================================================
+
+        function saveProfessionalDetails() {
+
+            if (!userId) {
+
+                alert("Please login first.");
+
+                return;
+
+            }
+
+
+            saveLocalProfessionalData({
+
+                phone:
+                    document.getElementById(
+                        "facultyPhone"
+                    ).value.trim(),
+
+                location:
+                    document.getElementById(
+                        "facultyLocation"
+                    ).value.trim(),
+
+                expertise:
+                    document.getElementById(
+                        "facultyExpertise"
+                    ).value.trim(),
+
+                experience:
+                    document.getElementById(
+                        "facultyExperience"
+                    ).value.trim(),
+
+                subjects:
+                    document.getElementById(
+                        "facultySubjects"
+                    ).value.trim()
+
+            });
+
+
+            alert(
+                "Professional details saved successfully!"
+            );
+
+        }
+
+
+
+        // =================================================
+        // SAVE LOCAL PROFESSIONAL DATA
+        // =================================================
+
+        function saveLocalProfessionalData(data) {
+
+            const oldData =
+                JSON.parse(
+                    localStorage.getItem(
+                        `facultyProfessional_${userId}`
+                    ) || "{}"
+                );
+
+
+            const newData = {
+
+                ...oldData,
+
+                ...data
+
+            };
+
+
+            localStorage.setItem(
+
+                `facultyProfessional_${userId}`,
+
+                JSON.stringify(newData)
+
+            );
+
+        }
+
+
+
+        // =================================================
+        // PAGE LOAD
+        // =================================================
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadFacultyProfile();
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

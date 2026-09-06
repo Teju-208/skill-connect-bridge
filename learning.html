@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Learning - SkillBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        Skill<span>Bridge</span>
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <a href="skills.html">
+            Skills
+        </a>
+
+        <a href="opportunities.html">
+            Opportunities
+        </a>
+
+        <a href="learning.html"
+           class="active">
+            Learning
+        </a>
+
+    </nav>
+
+
+    <button
+        class="logout-btn"
+        onclick="logoutUser()">
+
+        Logout
+
+    </button>
+
+</header>
+
+
+
+<main class="dashboard">
+
+
+    <section class="welcome-section">
+
+        <p class="small-label">
+            LEARNING HUB
+        </p>
+
+        <h1>
+            Learn & Grow 📚
+        </h1>
+
+        <p>
+            Build the skills identified in your skill-gap analysis
+            and become career ready.
+        </p>
+
+    </section>
+
+
+
+    <!-- LEARNING STATS -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📚
+            </div>
+
+            <h3>
+                Recommended Courses
+            </h3>
+
+            <strong id="courseCount">
+                0
+            </strong>
+
+            <p>
+                Based on your skill gaps
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ▶️
+            </div>
+
+            <h3>
+                Courses Started
+            </h3>
+
+            <strong>
+                0
+            </strong>
+
+            <p>
+                Keep learning
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <h3>
+                Completed
+            </h3>
+
+            <strong>
+                0
+            </strong>
+
+            <p>
+                Great progress
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏆
+            </div>
+
+            <h3>
+                Learning Score
+            </h3>
+
+            <strong>
+                0%
+            </strong>
+
+            <p>
+                Keep improving
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- COURSES -->
+
+    <section
+        class="dashboard-grid"
+        id="coursesContainer">
+
+        <!-- Courses will load from database -->
+
+    </section>
+
+
+
+    <!-- AI PERSONALIZED LEARNING -->
+
+    <section class="dashboard-card">
+        <div class="card-heading">
+            <div>
+                <h2>🤖 Personalized Learning Path</h2>
+                <p>Generated from your target career and current skill gaps.</p>
+            </div>
+        </div>
+        <div id="learningPathContainer">
+            <p>Building your learning path...</p>
+        </div>
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 SkillBridge. Build skills. Bridge opportunities.
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

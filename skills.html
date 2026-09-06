@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Skills - SkillBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        Skill<span>Bridge</span>
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <a href="skills.html" class="active">
+            Skills
+        </a>
+
+        <a href="opportunities.html">
+            Opportunities
+        </a>
+
+        <a href="learning.html">
+            Learning
+        </a>
+
+    </nav>
+
+
+    <button
+        class="logout-btn"
+        onclick="logoutUser()">
+
+        Logout
+
+    </button>
+
+</header>
+
+
+
+<main class="dashboard">
+
+
+    <section class="welcome-section">
+
+        <p class="small-label">
+            SKILL ASSESSMENT
+        </p>
+
+        <h1>
+            My Skills
+        </h1>
+
+        <p>
+            Understand your strengths and identify the
+            skills you need to improve for your career.
+        </p>
+
+
+        <button
+            class="primary-btn"
+            onclick="window.location.href='student-assessments.html'">
+
+            Start Skill Assessment
+
+        </button>
+
+    </section>
+
+
+
+    <!-- SKILL SCORE -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <h3>
+                Overall Skill Score
+            </h3>
+
+            <strong>
+                72%
+            </strong>
+
+            <p>
+                Good progress
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                💪
+            </div>
+
+            <h3>
+                Strong Skills
+            </h3>
+
+            <strong>
+                4
+            </strong>
+
+            <p>
+                Skills above 70%
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📈
+            </div>
+
+            <h3>
+                Skills Improving
+            </h3>
+
+            <strong>
+                3
+            </strong>
+
+            <p>
+                Currently learning
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <h3>
+                Skill Gaps
+            </h3>
+
+            <strong>
+                3
+            </strong>
+
+            <p>
+                Areas to improve
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SKILL PROGRESS -->
+
+    <section class="dashboard-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <h2>
+                    Skill Progress
+                </h2>
+
+                <p>
+                    Your current skill levels
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- JAVA -->
+
+        <div class="progress-item">
+
+            <div class="progress-title">
+
+                <span id="skillName1">
+                    Java
+                </span>
+
+                <span id="skillScore1">
+                    80%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    id="skillBar1"
+                    style="width:80%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HTML & CSS -->
+
+        <div class="progress-item">
+
+            <div class="progress-title">
+
+                <span id="skillName2">
+                    HTML & CSS
+                </span>
+
+                <span id="skillScore2">
+                    75%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    id="skillBar2"
+                    style="width:75%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PYTHON -->
+
+        <div class="progress-item">
+
+            <div class="progress-title">
+
+                <span id="skillName3">
+                    Python
+                </span>
+
+                <span id="skillScore3">
+                    65%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    id="skillBar3"
+                    style="width:65%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- JAVASCRIPT -->
+
+        <div class="progress-item">
+
+            <div class="progress-title">
+
+                <span id="skillName4">
+                    JavaScript
+                </span>
+
+                <span id="skillScore4">
+                    60%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    id="skillBar4"
+                    style="width:60%">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MACHINE LEARNING -->
+
+        <div class="progress-item">
+
+            <div class="progress-title">
+
+                <span id="skillName5">
+                    Machine Learning
+                </span>
+
+                <span id="skillScore5">
+                    45%
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    id="skillBar5"
+                    style="width:45%">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- AI SKILL GAP -->
+
+    <section class="dashboard-card">
+        <div class="card-heading">
+            <div>
+                <h2>🤖 AI Skill Gap Analysis</h2>
+                <p>SkillBridge compares your current skills with the requirements of your target career.</p>
+            </div>
+        </div>
+        <div id="aiSkillGapContainer">
+            <p>Analysing your career profile...</p>
+        </div>
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 SkillBridge. Build skills. Bridge opportunities.
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

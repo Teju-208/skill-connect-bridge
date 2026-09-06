@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <a href="index.html" class="logo">
+            Skill<span>Bridge</span>
+        </a>
+
+
+        <nav>
+
+            <a href="#features">Features</a>
+
+            <a href="#programs">Programs</a>
+
+            <a href="#how">How it works</a>
+
+            <a href="#about">About</a>
+
+        </nav>
+
+
+        <div class="header-buttons">
+
+            <button
+                class="login-button"
+                onclick="goToLogin()"
+            >
+                Login
+            </button>
+
+            <button
+                class="header-btn"
+                onclick="goToSignup()"
+            >
+                Create Account
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-label">
+                ✦ AI POWERED CAREER PLATFORM
+            </div>
+
+
+            <h1>
+
+                Build your
+                <span>future</span>
+                with SkillBridge
+
+            </h1>
+
+
+            <p>
+
+                Discover your skills, improve your knowledge
+                and connect with the right opportunities
+                for your career.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="hero-btn"
+                    onclick="goToSignup()"
+                >
+                    Start Your Journey →
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="scrollToFeatures()"
+                >
+                    Explore Platform
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO ILLUSTRATION -->
+
+        <div class="hero-character">
+
+            <div class="character-head">
+
+                <div class="hair"></div>
+
+                <div class="eye left"></div>
+
+                <div class="eye right"></div>
+
+                <div class="earphone"></div>
+
+            </div>
+
+
+            <div class="body">
+
+                <div class="hood"></div>
+
+            </div>
+
+
+            <div class="laptop"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section
+        class="features"
+        id="features"
+    >
+
+        <div class="section-title">
+
+            <h2>
+
+                With SkillBridge,
+                <span>you grow</span>
+                in multiple ways
+
+            </h2>
+
+
+            <p>
+
+                Everything you need to prepare
+                for your future.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    1
+                </div>
+
+                <h3>
+                    Discover your skills
+                </h3>
+
+                <p>
+
+                    Identify your strengths and
+                    understand what skills you
+                    already have.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    2
+                </div>
+
+                <h3>
+                    Improve your knowledge
+                </h3>
+
+                <p>
+
+                    Find the right learning resources
+                    and develop skills that industry needs.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    3
+                </div>
+
+                <h3>
+                    Build your profile
+                </h3>
+
+                <p>
+
+                    Showcase your projects,
+                    certifications, education
+                    and achievements.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    4
+                </div>
+
+                <h3>
+                    Find opportunities
+                </h3>
+
+                <p>
+
+                    Get internships and career
+                    opportunities based on your skills.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    ★
+                </div>
+
+                <h3>
+                    Prepare for your career
+                </h3>
+
+                <p>
+
+                    Connect your academic learning
+                    with real industry requirements.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PROGRAMS ================= -->
+
+    <section
+        class="programs"
+        id="programs"
+    >
+
+        <div class="section-title">
+
+            <h2>
+
+                Choose the right
+                <span>path for you</span>
+
+            </h2>
+
+
+            <p>
+
+                Personalized learning and
+                career programs.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="program-grid">
+
+
+            <div class="program purple">
+
+                <span class="age">
+                    BEGINNER
+                </span>
+
+
+                <h3>
+                    Skill Starter
+                </h3>
+
+
+                <p>
+
+                    Build your basic technical
+                    and professional skills.
+
+                </p>
+
+
+                <button onclick="goToSignup()">
+                    Learn More →
+                </button>
+
+
+                <div class="program-icon">
+                    💻
+                </div>
+
+            </div>
+
+
+
+            <div class="program orange">
+
+                <span class="age">
+                    INTERMEDIATE
+                </span>
+
+
+                <h3>
+                    Career Launch
+                </h3>
+
+
+                <p>
+
+                    Prepare yourself for internships
+                    and real-world projects.
+
+                </p>
+
+
+                <button onclick="goToSignup()">
+                    Learn More →
+                </button>
+
+
+                <div class="program-icon">
+                    🚀
+                </div>
+
+            </div>
+
+
+
+            <div class="program green">
+
+                <span class="age">
+                    ADVANCED
+                </span>
+
+
+                <h3>
+                    Industry Ready
+                </h3>
+
+
+                <p>
+
+                    Develop advanced skills required
+                    by companies.
+
+                </p>
+
+
+                <button onclick="goToSignup()">
+                    Learn More →
+                </button>
+
+
+                <div class="program-icon">
+                    🧑‍💻
+                </div>
+
+            </div>
+
+
+
+            <div class="program pink">
+
+                <span class="age">
+                    EXPERT
+                </span>
+
+
+                <h3>
+                    Career Expert
+                </h3>
+
+
+                <p>
+
+                    Connect your skills with
+                    high-quality opportunities.
+
+                </p>
+
+
+                <button onclick="goToSignup()">
+                    Learn More →
+                </button>
+
+
+                <div class="program-icon">
+                    🎯
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+
+    <section
+        class="how"
+        id="how"
+    >
+
+        <div class="section-title">
+
+            <h2>
+
+                How
+                <span>SkillBridge</span>
+                works
+
+            </h2>
+
+
+            <p>
+                Three simple steps to move forward.
+            </p>
+
+        </div>
+
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Create your profile
+                </h3>
+
+                <p>
+
+                    Add your education,
+                    skills, projects and interests.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    AI analyzes your skills
+                </h3>
+
+                <p>
+
+                    Our system identifies your
+                    strengths and skill gaps.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Get matched
+                </h3>
+
+                <p>
+
+                    Discover opportunities that
+                    match your skills and goals.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CTA ================= -->
+
+    <section
+        class="cta"
+        id="about"
+    >
+
+        <div>
+
+            <h2>
+
+                Don't know where
+                your skills can take you?
+
+            </h2>
+
+
+            <p>
+
+                Create your profile and discover
+                opportunities designed for you.
+
+            </p>
+
+        </div>
+
+
+        <button onclick="goToSignup()">
+
+            Create Profile →
+
+        </button>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div>
+
+            <div class="footer-logo">
+
+                Skill<span>Bridge</span>
+
+            </div>
+
+
+            <p>
+
+                Bridging students and industry.
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            © 2026 SkillBridge
+
+        </div>
+
+    </footer>
+
+
+</div>
+
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

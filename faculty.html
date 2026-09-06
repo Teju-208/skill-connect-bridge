@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty Portal - SkillBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="faculty-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="faculty-header">
+
+        <a href="index.html" class="logo">
+            Skill<span>Bridge</span>
+        </a>
+
+        <nav>
+
+            <a href="faculty.html" class="active">
+                Faculty
+            </a>
+
+            <a href="faculty-profile.html" class="faculty-profile-link">
+                Profile
+            </a>
+
+            <!-- NEW: ASSESSMENTS -->
+
+            <a href="faculty-assessments.html">
+                Assessments
+            </a>
+
+            <a href="#students">
+                Students
+            </a>
+
+            <a href="#performance">
+                Performance
+            </a>
+
+            <a href="#gaps">
+                Skill Gaps
+            </a>
+
+            <a href="#reports">
+                Reports
+            </a>
+
+        </nav>
+
+        <button
+            class="faculty-login-btn"
+            onclick="logoutUser(); window.location.href='index.html';"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="faculty-hero">
+
+        <div class="faculty-hero-content">
+
+            <span class="faculty-label">
+                FACULTY PORTAL
+            </span>
+
+            <h1>
+                Empower Your
+                <span>Students</span>
+                to Succeed
+            </h1>
+
+            <p>
+                Monitor student skills, identify learning gaps,
+                recommend learning paths and help students become
+                career ready.
+            </p>
+
+            <div class="faculty-hero-buttons">
+
+                <button
+                    onclick="document.getElementById('students').scrollIntoView({behavior:'smooth'})"
+                >
+                    View Students →
+                </button>
+
+                <button
+                    class="faculty-outline-btn"
+                    onclick="document.getElementById('performance').scrollIntoView({behavior:'smooth'})"
+                >
+                    View Performance
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Faculty Illustration -->
+
+        <div class="faculty-illustration">
+
+            <div class="faculty-circle"></div>
+
+            <div class="faculty-person">
+
+                <div class="person-hair"></div>
+
+                <div class="person-face">
+
+                    <div class="person-eye left"></div>
+                    <div class="person-eye right"></div>
+
+                </div>
+
+                <div class="person-body">
+                    <div class="person-shirt"></div>
+                </div>
+
+            </div>
+
+            <div class="faculty-laptop">
+
+                <div class="laptop-screen">
+
+                    <div class="screen-bar"></div>
+
+                    <div class="screen-line"></div>
+
+                    <div class="screen-line short"></div>
+
+                    <div class="screen-chart"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FACULTY STATS ================= -->
+
+    <section class="faculty-section">
+
+        <div class="faculty-title">
+
+            <h2>
+                Help Students Grow
+                <span>With Better Insights</span>
+            </h2>
+
+            <p>
+                Understand student progress and make informed academic decisions.
+            </p>
+
+        </div>
+
+
+        <div class="faculty-stats">
+
+            <!-- Total Students -->
+
+            <div class="faculty-stat purple-stat">
+
+                <div class="stat-symbol">
+                    👨‍🎓
+                </div>
+
+                <div>
+
+                    <strong id="totalStudents">
+                        0
+                    </strong>
+
+                    <p>
+                        Total Students
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Average Skill -->
+
+            <div class="faculty-stat blue-stat">
+
+                <div class="stat-symbol">
+                    📊
+                </div>
+
+                <div>
+
+                    <strong>
+                        <span id="averageSkillScore">0</span>%
+                    </strong>
+
+                    <p>
+                        Average Skill Score
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Skill Gaps -->
+
+            <div class="faculty-stat green-stat">
+
+                <div class="stat-symbol">
+                    🎯
+                </div>
+
+                <div>
+
+                    <strong id="skillGaps">
+                        0
+                    </strong>
+
+                    <p>
+                        Skill Gaps Found
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Career Ready -->
+
+            <div class="faculty-stat orange-stat">
+
+                <div class="stat-symbol">
+                    🚀
+                </div>
+
+                <div>
+
+                    <strong id="careerReady">
+                        0%
+                    </strong>
+
+                    <p>
+                        Career Ready
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PERFORMANCE ================= -->
+
+    <section
+        class="faculty-section"
+        id="performance"
+    >
+
+        <div class="faculty-title">
+
+            <h2>
+                Student
+                <span>Performance</span>
+            </h2>
+
+            <p>
+                See which technical skills your students are developing.
+            </p>
+
+        </div>
+
+
+        <div
+            class="performance-card"
+            id="facultyPerformanceGrid"
+        >
+
+            <div class="performance-item">
+
+                <div class="performance-top">
+
+                    <span>Python</span>
+
+                    <strong>82%</strong>
+
+                </div>
+
+                <div class="faculty-progress">
+
+                    <div style="width:82%"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="performance-item">
+
+                <div class="performance-top">
+
+                    <span>Java</span>
+
+                    <strong>74%</strong>
+
+                </div>
+
+                <div class="faculty-progress">
+
+                    <div style="width:74%"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="performance-item">
+
+                <div class="performance-top">
+
+                    <span>SQL</span>
+
+                    <strong>68%</strong>
+
+                </div>
+
+                <div class="faculty-progress">
+
+                    <div style="width:68%"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="performance-item">
+
+                <div class="performance-top">
+
+                    <span>Machine Learning</span>
+
+                    <strong>61%</strong>
+
+                </div>
+
+                <div class="faculty-progress">
+
+                    <div style="width:61%"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STUDENTS ================= -->
+
+    <section
+        class="faculty-section"
+        id="students"
+    >
+
+        <div class="faculty-title">
+
+            <h2>
+                Student
+                <span>Overview</span>
+            </h2>
+
+            <p>
+                Quickly check individual student performance.
+            </p>
+
+        </div>
+
+
+        <div
+            class="student-grid"
+            id="facultyStudentGrid"
+        >
+
+            <!-- Student A -->
+
+            <div class="student-card">
+
+                <div class="student-avatar">
+                    A
+                </div>
+
+                <h3>
+                    Student A
+                </h3>
+
+                <p>
+                    Overall Skill Score
+                </p>
+
+                <strong>
+                    86%
+                </strong>
+
+                <div class="mini-progress">
+
+                    <div style="width:86%"></div>
+
+                </div>
+
+                <button onclick="viewFacultyStudent(1)">
+                    View Profile →
+                </button>
+
+            </div>
+
+
+            <!-- Student B -->
+
+            <div class="student-card">
+
+                <div class="student-avatar">
+                    B
+                </div>
+
+                <h3>
+                    Student B
+                </h3>
+
+                <p>
+                    Overall Skill Score
+                </p>
+
+                <strong>
+                    78%
+                </strong>
+
+                <div class="mini-progress">
+
+                    <div style="width:78%"></div>
+
+                </div>
+
+                <button onclick="viewFacultyStudent(2)">
+                    View Profile →
+                </button>
+
+            </div>
+
+
+            <!-- Student C -->
+
+            <div class="student-card">
+
+                <div class="student-avatar">
+                    C
+                </div>
+
+                <h3>
+                    Student C
+                </h3>
+
+                <p>
+                    Overall Skill Score
+                </p>
+
+                <strong>
+                    64%
+                </strong>
+
+                <div class="mini-progress">
+
+                    <div style="width:64%"></div>
+
+                </div>
+
+                <button onclick="viewFacultyStudent(3)">
+                    View Profile →
+                </button>
+
+            </div>
+
+
+            <!-- Student D -->
+
+            <div class="student-card">
+
+                <div class="student-avatar">
+                    D
+                </div>
+
+                <h3>
+                    Student D
+                </h3>
+
+                <p>
+                    Overall Skill Score
+                </p>
+
+                <div class="mini-progress">
+
+                    <div style="width:91%"></div>
+
+                </div>
+
+                <strong>
+                    91%
+                </strong>
+
+                <button onclick="viewFacultyStudent(4)">
+                    View Profile →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SKILL GAPS ================= -->
+
+    <section
+        class="faculty-section"
+        id="gaps"
+    >
+
+        <div class="faculty-title">
+
+            <h2>
+                Common
+                <span>Skill Gaps</span>
+            </h2>
+
+            <p>
+                Identify the areas where students need additional support.
+            </p>
+
+        </div>
+
+
+        <div
+            class="gap-grid"
+            id="facultyGapGrid"
+        >
+
+            <!-- Machine Learning -->
+
+            <div class="gap-card">
+
+                <div class="gap-icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        Machine Learning
+                    </h3>
+
+                    <p>
+                        28 students need improvement
+                    </p>
+
+                </div>
+
+                <span>
+                    28
+                </span>
+
+            </div>
+
+
+            <!-- SQL -->
+
+            <div class="gap-card">
+
+                <div class="gap-icon">
+                    🗄️
+                </div>
+
+                <div>
+
+                    <h3>
+                        SQL
+                    </h3>
+
+                    <p>
+                        21 students need improvement
+                    </p>
+
+                </div>
+
+                <span>
+                    21
+                </span>
+
+            </div>
+
+
+            <!-- Communication -->
+
+            <div class="gap-card">
+
+                <div class="gap-icon">
+                    💬
+                </div>
+
+                <div>
+
+                    <h3>
+                        Communication
+                    </h3>
+
+                    <p>
+                        18 students need improvement
+                    </p>
+
+                </div>
+
+                <span>
+                    18
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FACULTY ACTIONS ================= -->
+
+    <section
+        class="faculty-section"
+        id="reports"
+    >
+
+        <div class="faculty-title">
+
+            <h2>
+                Faculty
+                <span>Actions</span>
+            </h2>
+
+            <p>
+                Take action based on student performance data.
+            </p>
+
+        </div>
+
+
+        <div class="action-grid">
+
+            <!-- Assess Students -->
+
+            <div class="action-card">
+
+                <div class="action-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Assess Students
+                </h3>
+
+                <p>
+                    Create skill assessments and evaluate student abilities.
+                </p>
+
+                <!-- CHANGED: NOW OPENS REAL ASSESSMENT PAGE -->
+
+                <button
+                    onclick="window.location.href='faculty-assessments.html'"
+                >
+                    Start Assessment →
+                </button>
+
+            </div>
+
+
+            <!-- Recommend Learning -->
+
+            <div class="action-card">
+
+                <div class="action-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Recommend Learning
+                </h3>
+
+                <p>
+                    Recommend courses based on individual skill gaps.
+                </p>
+
+                <button
+                    onclick="alert('Learning recommendation feature coming soon!')"
+                >
+                    Recommend Course →
+                </button>
+
+            </div>
+
+
+            <!-- Reports -->
+
+            <div class="action-card">
+
+                <div class="action-icon">
+                    📈
+                </div>
+
+                <h3>
+                    View Reports
+                </h3>
+
+                <p>
+                    Analyze student progress and generate useful reports.
+                </p>
+
+                <button onclick="loadFacultyReports()">
+                    View Reports →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="facultyReportResult"
+            class="report-result"
+        ></div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="faculty-cta">
+
+        <div>
+
+            <h2>
+                Bridge the gap between
+                <span>students and careers.</span>
+            </h2>
+
+            <p>
+                Use SkillBridge insights to help every student build
+                the skills they need.
+            </p>
+
+        </div>
+
+
+        <button
+            onclick="document.getElementById('students').scrollIntoView({behavior:'smooth'})"
+        >
+            Explore Students →
+        </button>
+
+    </section>
+
+
+</div>
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+async function loadFacultyStats() {
+
+    try {
+
+        const response = await fetch(
+            "/api/faculty/stats"
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            console.error(data.message);
+            return;
+        }
+
+
+        const totalStudents =
+            document.getElementById("totalStudents");
+
+        const averageSkillScore =
+            document.getElementById("averageSkillScore");
+
+        const skillGaps =
+            document.getElementById("skillGaps");
+
+        const careerReady =
+            document.getElementById("careerReady");
+
+
+        if (totalStudents) {
+            totalStudents.textContent =
+                data.total_students || 0;
+        }
+
+
+        if (averageSkillScore) {
+            averageSkillScore.textContent =
+                data.average_skill_score || 0;
+        }
+
+
+        if (skillGaps) {
+            skillGaps.textContent =
+                data.skill_gaps || 0;
+        }
+
+
+        if (careerReady) {
+            careerReady.textContent =
+                `${data.career_ready_percentage || 0}%`;
+        }
+
+    }
+    catch (error) {
+
+        console.error(
+            "Faculty stats error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+async function loadFacultyReports() {
+
+    try {
+
+        const response = await fetch(
+            "/api/faculty/reports"
+        );
+
+        const data = await response.json();
+
+
+        if (!response.ok) {
+
+            alert(
+                data.message ||
+                "Unable to generate report."
+            );
+
+            return;
+        }
+
+
+        const report =
+            document.getElementById(
+                "facultyReportResult"
+            );
+
+
+        if (report) {
+
+            report.innerHTML = `
+
+                <div class="report-summary">
+
+                    <h3>
+                        Latest Report
+                    </h3>
+
+                    <p>
+                        Total Students:
+                        <strong>
+                            ${data.total_students || 0}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Average Skill Score:
+                        <strong>
+                            ${data.average_score || 0}%
+                        </strong>
+                    </p>
+
+                    <p>
+                        Skill Gaps:
+                        <strong>
+                            ${data.skill_gaps || 0}
+                        </strong>
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+    catch (error) {
+
+        console.error(
+            "Faculty report error:",
+            error
+        );
+
+        alert(
+            "Unable to connect to the server."
+        );
+
+    }
+
+}
+
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        loadFacultyStats();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge | University Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="university-page">
+
+    <!-- HEADER -->
+    <header class="university-header">
+
+        <a href="university.html" class="university-logo">
+            Skill<span>Bridge</span>
+        </a>
+
+        <nav class="university-nav">
+            <a href="university.html">Dashboard</a>
+            <a href="#students">Students</a>
+            <a href="#departments">Departments</a>
+            <a href="#analytics">Analytics</a>
+            <a href="#reports">Reports</a>
+        </nav>
+
+        <div class="university-header-right">
+
+            <span class="university-name">
+                University Portal
+            </span>
+
+            <button
+                class="university-logout"
+                onclick="window.location.href='login.html'">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="university-hero">
+
+        <div class="university-hero-content">
+
+            <span class="university-tag">
+                UNIVERSITY MANAGEMENT DASHBOARD
+            </span>
+
+            <h1>
+                Build a
+                <span>Future-Ready</span>
+                Campus
+            </h1>
+
+            <p>
+                Monitor student skills, understand department
+                performance, identify skill gaps and improve
+                career readiness across your institution.
+            </p>
+
+            <div class="university-hero-buttons">
+
+                <button
+                    onclick="document.getElementById('analytics').scrollIntoView({behavior:'smooth'})">
+                    View Analytics
+                </button>
+
+                <button
+                    class="university-outline-btn"
+                    onclick="document.getElementById('reports').scrollIntoView({behavior:'smooth'})">
+                    View Reports
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="university-illustration">
+            🏫
+        </div>
+
+    </section>
+
+
+    <!-- MAIN -->
+    <main class="university-main">
+
+
+        <!-- OVERVIEW -->
+        <section class="university-section">
+
+            <div class="university-section-title">
+
+                <h2>University Overview</h2>
+
+                <p>
+                    A quick overview of your institution's
+                    student skill development.
+                </p>
+
+            </div>
+
+
+            <div class="university-stats">
+
+                <div class="university-stat">
+
+                    <div class="university-stat-icon">
+                        👨‍🎓
+                    </div>
+
+                    <h3>2,450</h3>
+
+                    <p>Total Students</p>
+
+                </div>
+
+
+                <div class="university-stat">
+
+                    <div class="university-stat-icon">
+                        🏛️
+                    </div>
+
+                    <h3>8</h3>
+
+                    <p>Departments</p>
+
+                </div>
+
+
+                <div class="university-stat">
+
+                    <div class="university-stat-icon">
+                        📊
+                    </div>
+
+                    <h3>76%</h3>
+
+                    <p>Average Skill Score</p>
+
+                </div>
+
+
+                <div class="university-stat">
+
+                    <div class="university-stat-icon">
+                        🎯
+                    </div>
+
+                    <h3>71%</h3>
+
+                    <p>Career Ready</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DEPARTMENTS -->
+        <section
+            class="university-section"
+            id="departments">
+
+            <div class="university-section-title">
+
+                <h2>Department Performance</h2>
+
+                <p>
+                    Compare skill development across major departments.
+                </p>
+
+            </div>
+
+
+            <div class="university-card">
+
+                <div class="university-table-wrapper">
+
+                    <table class="university-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Department</th>
+                                <th>Students</th>
+                                <th>Skill Score</th>
+                                <th>Career Ready</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Artificial Intelligence</td>
+                                <td>420</td>
+                                <td>82%</td>
+                                <td>78%</td>
+                                <td>
+                                    <span class="university-badge success">
+                                        Strong
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Computer Science</td>
+                                <td>650</td>
+                                <td>79%</td>
+                                <td>74%</td>
+                                <td>
+                                    <span class="university-badge success">
+                                        Good
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Information Technology</td>
+                                <td>390</td>
+                                <td>74%</td>
+                                <td>69%</td>
+                                <td>
+                                    <span class="university-badge warning">
+                                        Improve
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Electronics & Communication</td>
+                                <td>510</td>
+                                <td>71%</td>
+                                <td>66%</td>
+                                <td>
+                                    <span class="university-badge warning">
+                                        Improve
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Mechanical Engineering</td>
+                                <td>480</td>
+                                <td>68%</td>
+                                <td>61%</td>
+                                <td>
+                                    <span class="university-badge danger">
+                                        Attention
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ANALYTICS -->
+        <section
+            class="university-section"
+            id="analytics">
+
+            <div class="university-section-title">
+
+                <h2>Skill Analytics</h2>
+
+                <p>
+                    Understand the most important skills
+                    across your student community.
+                </p>
+
+            </div>
+
+
+            <div class="university-analytics-grid">
+
+
+                <!-- SKILLS -->
+                <div class="university-card">
+
+                    <h3>
+                        Top Student Skills
+                    </h3>
+
+
+                    <div class="university-skill">
+
+                        <div class="university-skill-top">
+                            <span>Python</span>
+                            <strong>84%</strong>
+                        </div>
+
+                        <div class="university-progress">
+                            <div
+                                class="university-progress-fill blue"
+                                style="width:84%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="university-skill">
+
+                        <div class="university-skill-top">
+                            <span>Java</span>
+                            <strong>78%</strong>
+                        </div>
+
+                        <div class="university-progress">
+                            <div
+                                class="university-progress-fill teal"
+                                style="width:78%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="university-skill">
+
+                        <div class="university-skill-top">
+                            <span>SQL</span>
+                            <strong>72%</strong>
+                        </div>
+
+                        <div class="university-progress">
+                            <div
+                                class="university-progress-fill orange"
+                                style="width:72%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="university-skill">
+
+                        <div class="university-skill-top">
+                            <span>Machine Learning</span>
+                            <strong>64%</strong>
+                        </div>
+
+                        <div class="university-progress">
+                            <div
+                                class="university-progress-fill green"
+                                style="width:64%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SKILL GAPS -->
+                <div class="university-card">
+
+                    <h3>
+                        Major Skill Gaps
+                    </h3>
+
+
+                    <div class="university-gap">
+
+                        <div>
+                            <strong>Machine Learning</strong>
+                            <small>
+                                420 students
+                            </small>
+                        </div>
+
+                        <span>
+                            High
+                        </span>
+
+                    </div>
+
+
+                    <div class="university-gap">
+
+                        <div>
+                            <strong>Communication</strong>
+                            <small>
+                                380 students
+                            </small>
+                        </div>
+
+                        <span>
+                            High
+                        </span>
+
+                    </div>
+
+
+                    <div class="university-gap">
+
+                        <div>
+                            <strong>Cloud Computing</strong>
+                            <small>
+                                295 students
+                            </small>
+                        </div>
+
+                        <span>
+                            Medium
+                        </span>
+
+                    </div>
+
+
+                    <div class="university-gap">
+
+                        <div>
+                            <strong>Data Analytics</strong>
+                            <small>
+                                240 students
+                            </small>
+                        </div>
+
+                        <span>
+                            Medium
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STUDENTS -->
+        <section
+            class="university-section"
+            id="students">
+
+            <div class="university-section-title">
+
+                <h2>Student Development</h2>
+
+                <p>
+                    Monitor student progress and career readiness.
+                </p>
+
+            </div>
+
+
+            <div class="university-feature-grid">
+
+                <div class="university-feature">
+
+                    <div class="university-feature-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Learning Progress
+                    </h3>
+
+                    <p>
+                        Track how students are improving
+                        their technical and professional skills.
+                    </p>
+
+                    <button>
+                        View Progress
+                    </button>
+
+                </div>
+
+
+                <div class="university-feature">
+
+                    <div class="university-feature-icon">
+                        🎯
+                    </div>
+
+                    <h3>
+                        Career Readiness
+                    </h3>
+
+                    <p>
+                        Identify students who are ready
+                        for internships and employment.
+                    </p>
+
+                    <button>
+                        View Readiness
+                    </button>
+
+                </div>
+
+
+                <div class="university-feature">
+
+                    <div class="university-feature-icon">
+                        👨‍🏫
+                    </div>
+
+                    <h3>
+                        Faculty Performance
+                    </h3>
+
+                    <p>
+                        Monitor faculty engagement in
+                        student skill development.
+                    </p>
+
+                    <button
+                        onclick="window.location.href='faculty.html'">
+                        Faculty Portal
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REPORTS -->
+        <section
+            class="university-section"
+            id="reports">
+
+            <div class="university-report">
+
+                <div>
+
+                    <h2>
+                        Generate University Reports
+                    </h2>
+
+                    <p>
+                        Get insights into student skills,
+                        department performance and career readiness.
+                    </p>
+
+                </div>
+
+                <button
+                    onclick="alert('University report generation will be available here.')">
+                    Generate Report
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="university-footer">
+
+        <span>
+            © 2026 SkillBridge
+        </span>
+
+        <span>
+            University Portal • Institutional Skill Development
+        </span>
+
+    </footer>
+
+</div>
+
+
+<!-- SHARED JAVASCRIPT -->
+<script src="student-data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

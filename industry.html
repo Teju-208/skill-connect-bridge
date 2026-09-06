@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge | Industry Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="industry-page">
+
+    <!-- HEADER -->
+    <header class="industry-header">
+
+        <a href="industry.html" class="industry-logo">
+            Skill<span>Bridge</span>
+        </a>
+
+        <nav class="industry-nav">
+
+            <a href="#dashboard">Dashboard</a>
+            <a href="#candidates">Candidates</a>
+            <a href="#skills">Skill Demand</a>
+            <a href="#reports">Reports</a>
+
+        </nav>
+
+        <div class="industry-header-right">
+
+            <div class="industry-company">
+                <div class="industry-company-icon">🏢</div>
+
+                <div>
+                    <strong>Industry Portal</strong>
+                    <small>Organization</small>
+                </div>
+            </div>
+
+            <button
+                class="industry-logout"
+                onclick="window.location.href='login.html'">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="industry-main">
+
+
+        <!-- HERO -->
+        <section class="industry-hero">
+
+            <div class="industry-hero-content">
+
+                <span class="industry-tag">
+                    INDUSTRY TALENT PLATFORM
+                </span>
+
+                <h1>
+                    Build Your
+                    <span>Future Workforce</span>
+                </h1>
+
+                <p>
+                    Discover skilled students, identify the right
+                    candidates and understand the skills your
+                    organization needs.
+                </p>
+
+                <div class="industry-hero-buttons">
+
+                    <button
+                        onclick="document.getElementById('candidates').scrollIntoView({behavior:'smooth'})">
+
+                        Find Candidates
+                    </button>
+
+                    <button
+                        class="industry-outline-btn"
+                        onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">
+
+                        Skill Analytics
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="industry-hero-visual">
+
+                <div class="industry-visual-card">
+
+                    <div class="industry-visual-top">
+                        <span>Talent Match</span>
+                        <span>94%</span>
+                    </div>
+
+                    <div class="industry-visual-bar">
+                        <div></div>
+                    </div>
+
+                    <div class="industry-visual-person">
+                        <div class="industry-person-circle">
+                            A
+                        </div>
+
+                        <div>
+                            <strong>Student A</strong>
+                            <small>AI & Machine Learning</small>
+                        </div>
+                    </div>
+
+                    <div class="industry-visual-skills">
+                        <span>Python</span>
+                        <span>ML</span>
+                        <span>SQL</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="industry-section">
+
+            <div class="industry-section-heading">
+
+                <div>
+                    <span class="industry-mini-label">
+                        OVERVIEW
+                    </span>
+
+                    <h2>Industry Dashboard</h2>
+
+                    <p>
+                        Monitor your organization's talent
+                        and recruitment activities.
+                    </p>
+                </div>
+
+                <span class="industry-live">
+                    ● Live Dashboard
+                </span>
+
+            </div>
+
+
+            <!-- STATS -->
+            <div class="industry-stats">
+
+                <div class="industry-stat">
+
+                    <div class="industry-stat-top">
+                        <div class="industry-stat-icon blue">
+                            💼
+                        </div>
+
+                        <span class="industry-stat-growth">
+                            +12%
+                        </span>
+                    </div>
+
+                    <h3>42</h3>
+
+                    <p>Active Opportunities</p>
+
+                </div>
+
+
+                <div class="industry-stat">
+
+                    <div class="industry-stat-top">
+                        <div class="industry-stat-icon teal">
+                            👨‍🎓
+                        </div>
+
+                        <span class="industry-stat-growth">
+                            +18%
+                        </span>
+                    </div>
+
+                    <h3>385</h3>
+
+                    <p>Total Candidates</p>
+
+                </div>
+
+
+                <div class="industry-stat">
+
+                    <div class="industry-stat-top">
+                        <div class="industry-stat-icon orange">
+                            🎯
+                        </div>
+
+                        <span class="industry-stat-growth">
+                            +9%
+                        </span>
+                    </div>
+
+                    <h3>126</h3>
+
+                    <p>Shortlisted</p>
+
+                </div>
+
+
+                <div class="industry-stat">
+
+                    <div class="industry-stat-top">
+                        <div class="industry-stat-icon green">
+                            ✓
+                        </div>
+
+                        <span class="industry-stat-growth">
+                            +6%
+                        </span>
+                    </div>
+
+                    <h3>91%</h3>
+
+                    <p>Recruitment Success</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD CARDS -->
+            <div class="industry-dashboard-grid">
+
+
+                <!-- ACTIVITY -->
+                <div class="industry-card">
+
+                    <div class="industry-card-heading">
+
+                        <div>
+                            <h3>Recruitment Activity</h3>
+                            <p>Latest updates</p>
+                        </div>
+
+                        <span class="industry-card-more">
+                            •••
+                        </span>
+
+                    </div>
+
+
+                    <div class="industry-activity">
+
+                        <div class="industry-activity-icon blue">
+                            👨‍🎓
+                        </div>
+
+                        <div>
+                            <strong>New candidate matched</strong>
+                            <small>AI / ML Internship</small>
+                        </div>
+
+                        <span>2h</span>
+
+                    </div>
+
+
+                    <div class="industry-activity">
+
+                        <div class="industry-activity-icon orange">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>Candidate shortlisted</strong>
+                            <small>Software Developer</small>
+                        </div>
+
+                        <span>5h</span>
+
+                    </div>
+
+
+                    <div class="industry-activity">
+
+                        <div class="industry-activity-icon teal">
+                            📈
+                        </div>
+
+                        <div>
+                            <strong>Skill demand updated</strong>
+                            <small>Python & Machine Learning</small>
+                        </div>
+
+                        <span>1d</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PIPELINE -->
+                <div class="industry-card">
+
+                    <div class="industry-card-heading">
+
+                        <div>
+                            <h3>Hiring Pipeline</h3>
+                            <p>Candidate progress</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="industry-pipeline">
+
+                        <div>
+                            <span>Applications</span>
+                            <strong>385</strong>
+                        </div>
+
+                        <div>
+                            <span>Shortlisted</span>
+                            <strong>126</strong>
+                        </div>
+
+                        <div>
+                            <span>Interviews</span>
+                            <strong>74</strong>
+                        </div>
+
+                        <div>
+                            <span>Selected</span>
+                            <strong>24</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CANDIDATES -->
+        <section
+            id="candidates"
+            class="industry-section">
+
+            <div class="industry-section-heading">
+
+                <div>
+
+                    <span class="industry-mini-label">
+                        TALENT POOL
+                    </span>
+
+                    <h2>Top Candidates</h2>
+
+                    <p>
+                        Students with the strongest match
+                        for your organization's requirements.
+                    </p>
+
+                </div>
+
+                <button
+                    class="industry-small-btn"
+                    onclick="alert('Candidate filtering will be available here.')">
+
+                    Filter Candidates
+
+                </button>
+
+            </div>
+
+
+            <div class="industry-card industry-candidates-card">
+
+                <!-- Candidate 1 -->
+                <div class="industry-candidate">
+
+                    <div class="industry-avatar">
+                        A
+                    </div>
+
+                    <div class="industry-candidate-info">
+
+                        <h3>Student A</h3>
+
+                        <p>
+                            B.Tech • Artificial Intelligence
+                        </p>
+
+                        <div class="industry-skill-tags">
+                            <span>Python</span>
+                            <span>Machine Learning</span>
+                            <span>SQL</span>
+                        </div>
+
+                    </div>
+
+                    <div class="industry-match">
+
+                        <strong>94%</strong>
+                        <span>Skill Match</span>
+
+                    </div>
+
+                    <button
+                        class="industry-view-btn"
+                        onclick="alert('Candidate profile will open here.')">
+
+                        View Profile
+
+                    </button>
+
+                </div>
+
+
+                <!-- Candidate 2 -->
+                <div class="industry-candidate">
+
+                    <div class="industry-avatar">
+                        B
+                    </div>
+
+                    <div class="industry-candidate-info">
+
+                        <h3>Student B</h3>
+
+                        <p>
+                            B.Tech • Computer Science
+                        </p>
+
+                        <div class="industry-skill-tags">
+                            <span>Java</span>
+                            <span>SQL</span>
+                            <span>Data Structures</span>
+                        </div>
+
+                    </div>
+
+                    <div class="industry-match">
+
+                        <strong>89%</strong>
+                        <span>Skill Match</span>
+
+                    </div>
+
+                    <button
+                        class="industry-view-btn"
+                        onclick="alert('Candidate profile will open here.')">
+
+                        View Profile
+
+                    </button>
+
+                </div>
+
+
+                <!-- Candidate 3 -->
+                <div class="industry-candidate">
+
+                    <div class="industry-avatar">
+                        C
+                    </div>
+
+                    <div class="industry-candidate-info">
+
+                        <h3>Student C</h3>
+
+                        <p>
+                            B.Tech • Information Technology
+                        </p>
+
+                        <div class="industry-skill-tags">
+                            <span>Python</span>
+                            <span>Data Analytics</span>
+                            <span>SQL</span>
+                        </div>
+
+                    </div>
+
+                    <div class="industry-match">
+
+                        <strong>86%</strong>
+                        <span>Skill Match</span>
+
+                    </div>
+
+                    <button
+                        class="industry-view-btn"
+                        onclick="alert('Candidate profile will open here.')">
+
+                        View Profile
+
+                    </button>
+
+                </div>
+
+
+                <!-- Candidate 4 -->
+                <div class="industry-candidate">
+
+                    <div class="industry-avatar">
+                        D
+                    </div>
+
+                    <div class="industry-candidate-info">
+
+                        <h3>Student D</h3>
+
+                        <p>
+                            B.Tech • Computer Science
+                        </p>
+
+                        <div class="industry-skill-tags">
+                            <span>Java</span>
+                            <span>Cloud</span>
+                            <span>Linux</span>
+                        </div>
+
+                    </div>
+
+                    <div class="industry-match">
+
+                        <strong>83%</strong>
+                        <span>Skill Match</span>
+
+                    </div>
+
+                    <button
+                        class="industry-view-btn"
+                        onclick="alert('Candidate profile will open here.')">
+
+                        View Profile
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILL DEMAND -->
+        <section
+            id="skills"
+            class="industry-section">
+
+            <div class="industry-section-heading">
+
+                <div>
+
+                    <span class="industry-mini-label">
+                        MARKET INSIGHTS
+                    </span>
+
+                    <h2>Skill Demand</h2>
+
+                    <p>
+                        Understand the skills most required
+                        by your organization.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="industry-analytics-grid">
+
+
+                <!-- DEMAND -->
+                <div class="industry-card">
+
+                    <div class="industry-card-heading">
+
+                        <div>
+                            <h3>Most In-Demand Skills</h3>
+                            <p>Current industry requirements</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="industry-skill">
+
+                        <div class="industry-skill-top">
+                            <span>Python</span>
+                            <strong>92%</strong>
+                        </div>
+
+                        <div class="industry-progress">
+                            <div
+                                class="industry-progress-fill blue"
+                                style="width:92%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="industry-skill">
+
+                        <div class="industry-skill-top">
+                            <span>Java</span>
+                            <strong>84%</strong>
+                        </div>
+
+                        <div class="industry-progress">
+                            <div
+                                class="industry-progress-fill teal"
+                                style="width:84%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="industry-skill">
+
+                        <div class="industry-skill-top">
+                            <span>SQL</span>
+                            <strong>79%</strong>
+                        </div>
+
+                        <div class="industry-progress">
+                            <div
+                                class="industry-progress-fill orange"
+                                style="width:79%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="industry-skill">
+
+                        <div class="industry-skill-top">
+                            <span>Machine Learning</span>
+                            <strong>73%</strong>
+                        </div>
+
+                        <div class="industry-progress">
+                            <div
+                                class="industry-progress-fill green"
+                                style="width:73%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="industry-skill">
+
+                        <div class="industry-skill-top">
+                            <span>Cloud Computing</span>
+                            <strong>67%</strong>
+                        </div>
+
+                        <div class="industry-progress">
+                            <div
+                                class="industry-progress-fill blue"
+                                style="width:67%;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRIORITIES -->
+                <div class="industry-card">
+
+                    <div class="industry-card-heading">
+
+                        <div>
+                            <h3>Hiring Priorities</h3>
+                            <p>Skills currently receiving attention</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="industry-priority">
+
+                        <div>
+                            <strong>AI & Machine Learning</strong>
+                            <small>28 requirements</small>
+                        </div>
+
+                        <span class="high">High</span>
+
+                    </div>
+
+
+                    <div class="industry-priority">
+
+                        <div>
+                            <strong>Software Development</strong>
+                            <small>24 requirements</small>
+                        </div>
+
+                        <span class="high">High</span>
+
+                    </div>
+
+
+                    <div class="industry-priority">
+
+                        <div>
+                            <strong>Data Analytics</strong>
+                            <small>17 requirements</small>
+                        </div>
+
+                        <span class="medium">Medium</span>
+
+                    </div>
+
+
+                    <div class="industry-priority">
+
+                        <div>
+                            <strong>Cloud Computing</strong>
+                            <small>13 requirements</small>
+                        </div>
+
+                        <span class="medium">Medium</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REPORTS -->
+        <section
+            id="reports"
+            class="industry-section">
+
+            <div class="industry-section-heading">

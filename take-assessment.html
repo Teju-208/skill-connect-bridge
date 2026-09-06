@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillBridge - Take Assessment</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =====================================================
+           TAKE ASSESSMENT PAGE
+           Everything is scoped so existing CSS is untouched.
+        ===================================================== */
+
+        .take-assessment-page {
+            min-height: 100vh;
+            background: #f7f8fc;
+            color: #222;
+        }
+
+        .take-assessment-page * {
+            box-sizing: border-box;
+        }
+
+        /* HEADER */
+
+        .take-assessment-page .take-header {
+            min-height: 70px;
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #e8e8ef;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .take-assessment-page .take-logo {
+            font-size: 25px;
+            font-weight: 700;
+            color: #222;
+            text-decoration: none;
+        }
+
+        .take-assessment-page .take-logo span {
+            color: #6c63ff;
+        }
+
+        .take-assessment-page .back-btn {
+            border: none;
+            background: transparent;
+            color: #6c63ff;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* MAIN */
+
+        .take-assessment-page .take-main {
+            width: 88%;
+            max-width: 900px;
+            margin: auto;
+            padding: 45px 0 70px;
+        }
+
+        /* TITLE */
+
+        .take-assessment-page .assessment-info {
+            background: linear-gradient(
+                135deg,
+                #6c63ff,
+                #8179ff
+            );
+
+            color: white;
+
+            padding: 35px;
+            border-radius: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        .take-assessment-page .assessment-info .label {
+            font-size: 12px;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .take-assessment-page .assessment-info h1 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+
+        .take-assessment-page .assessment-info p {
+            margin: 0;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .take-assessment-page .assessment-info .skill-tag {
+            display: inline-block;
+            margin-top: 18px;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.18);
+
+            font-size: 13px;
+        }
+
+        /* PROGRESS */
+
+        .take-assessment-page .progress-wrapper {
+            margin-bottom: 25px;
+        }
+
+        .take-assessment-page .progress-text {
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 13px;
+            color: #666;
+
+            margin-bottom: 8px;
+        }
+
+        .take-assessment-page .progress-bar {
+            width: 100%;
+            height: 8px;
+
+            background: #e4e4ed;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .take-assessment-page .progress-fill {
+            width: 0%;
+            height: 100%;
+
+            background: #6c63ff;
+
+            border-radius: 10px;
+
+            transition: width 0.3s ease;
+        }
+
+        /* QUESTIONS */
+
+        .take-assessment-page .question-card {
+            background: white;
+
+            border: 1px solid #e7e7ef;
+
+            border-radius: 15px;
+
+            padding: 28px;
+
+            margin-bottom: 20px;
+        }
+
+        .take-assessment-page .question-number {
+            color: #6c63ff;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+        .take-assessment-page .question-text {
+            font-size: 18px;
+
+            font-weight: 600;
+
+            line-height: 1.5;
+
+            margin-bottom: 22px;
+        }
+
+        /* OPTIONS */
+
+        .take-assessment-page .option {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            border: 1px solid #dedee8;
+
+            border-radius: 9px;
+
+            padding: 13px 15px;
+
+            margin-bottom: 10px;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .take-assessment-page .option:hover {
+            border-color: #6c63ff;
+            background: #f8f7ff;
+        }
+
+        .take-assessment-page .option input {
+            accent-color: #6c63ff;
+            cursor: pointer;
+        }
+
+        .take-assessment-page .option.selected {
+            border-color: #6c63ff;
+            background: #f0efff;
+        }
+
+        .take-assessment-page .option span {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* SUBMIT */
+
+        .take-assessment-page .submit-section {
+            margin-top: 30px;
+
+            background: white;
+
+            border: 1px solid #e7e7ef;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+        .take-assessment-page .submit-btn {
+            border: none;
+
+            background: #6c63ff;
+
+            color: white;
+
+            padding: 13px 30px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .take-assessment-page .submit-btn:hover {
+            background: #574fe0;
+        }
+
+        .take-assessment-page .submit-btn:disabled {
+            background: #aaa;
+
+            cursor: not-allowed;
+        }
+
+        .take-assessment-page .submit-note {
+            color: #777;
+
+            font-size: 13px;
+
+            margin-top: 12px;
+        }
+
+        /* LOADING */
+
+        .take-assessment-page .loading {
+            text-align: center;
+
+            padding: 60px;
+
+            color: #777;
+        }
+
+        /* ERROR */
+
+        .take-assessment-page .error-box {
+            display: none;
+
+            background: #fff0f0;
+
+            border: 1px solid #ffd0d0;
+
+            color: #c0392b;
+
+            padding: 15px;
+
+            border-radius: 9px;
+
+            margin-bottom: 20px;
+        }
+
+        /* RESULT */
+
+        .take-assessment-page .result-box {
+            display: none;
+
+            background: white;
+
+            border: 1px solid #e7e7ef;
+
+            border-radius: 18px;
+
+            padding: 45px;
+
+            text-align: center;
+        }
+
+        .take-assessment-page .result-icon {
+            width: 75px;
+            height: 75px;
+
+            border-radius: 50%;
+
+            background: #eeecff;
+
+            color: #6c63ff;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 20px;
+
+            font-size: 32px;
+
+            font-weight: bold;
+        }
+
+        .take-assessment-page .result-box h2 {
+            margin: 0 0 10px;
+
+            font-size: 28px;
+        }
+
+        .take-assessment-page .result-score {
+            font-size: 48px;
+
+            font-weight: 800;
+
+            color: #6c63ff;
+
+            margin: 15px 0;
+        }
+
+        .take-assessment-page .result-message {
+            color: #666;
+
+            margin-bottom: 25px;
+
+            line-height: 1.6;
+        }
+
+        .take-assessment-page .result-actions {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .take-assessment-page .result-btn {
+            border: none;
+
+            background: #6c63ff;
+
+            color: white;
+
+            padding: 12px 22px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+        .take-assessment-page .result-btn.secondary {
+            background: #eeeef5;
+
+            color: #444;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            .take-assessment-page .take-header {
+                padding: 0 5%;
+            }
+
+            .take-assessment-page .take-main {
+                width: 92%;
+
+                padding-top: 30px;
+            }
+
+            .take-assessment-page .assessment-info {
+                padding: 28px;
+            }
+
+            .take-assessment-page .assessment-info h1 {
+                font-size: 25px;
+            }
+
+            .take-assessment-page .question-card {
+                padding: 22px;
+            }
+
+            .take-assessment-page .result-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="take-assessment-page">
+
+    <!-- HEADER -->
+
+    <header class="take-header">
+
+        <a
+            href="dashboard.html"
+            class="take-logo"
+        >
+            Skill<span>Bridge</span>
+        </a>
+
+        <button
+            class="back-btn"
+            onclick="window.location.href='student-assessments.html'"
+        >
+            ← Back to Assessments
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="take-main">
+
+        <!-- ERROR -->
+
+        <div
+            id="errorBox"
+            class="error-box"
+        ></div>
+
+
+        <!-- ASSESSMENT INFO -->
+
+        <section
+            id="assessmentInfo"
+            class="assessment-info"
+            style="display:none;"
+        >
+
+            <div class="label">
+                SKILL ASSESSMENT
+            </div>
+
+            <h1 id="assessmentTitle">
+                Assessment
+            </h1>
+
+            <p id="assessmentDescription">
+            </p>
+
+            <span
+                id="assessmentSkill"
+                class="skill-tag"
+            >
+                Skill
+            </span>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+
+        <div
+            id="progressWrapper"
+            class="progress-wrapper"
+            style="display:none;"
+        >
+
+            <div class="progress-text">
+
+                <span id="progressText">
+                    0 / 0 answered
+                </span>
+
+                <span id="progressPercent">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressFill"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUESTIONS -->
+
+        <section id="questionsContainer">
+
+            <div class="loading">
+                Loading assessment...
+            </div>
+
+        </section>
+
+
+        <!-- SUBMIT -->
+
+        <section
+            id="submitSection"
+            class="submit-section"
+            style="display:none;"
+        >
+
+            <button
+                id="submitBtn"
+                class="submit-btn"
+                onclick="submitAssessment()"
+            >
+                Submit Assessment
+            </button>
+
+            <div class="submit-note">
+                Make sure you have selected an answer for every question.
+            </div>
+
+        </section>
+
+
+        <!-- RESULT -->
+
+        <section
+            id="resultBox"
+            class="result-box"
+        >
+
+            <div class="result-icon">
+                ✓
+            </div>
+
+            <h2>
+                Assessment Completed!
+            </h2>
+
+            <div
+                id="resultScore"
+                class="result-score"
+            >
+                0%
+            </div>
+
+            <p
+                id="resultMessage"
+                class="result-message"
+            >
+                Your assessment has been submitted successfully.
+            </p>
+
+            <div class="result-actions">
+
+                <button
+                    class="result-btn"
+                    onclick="window.location.href='student-assessments.html'"
+                >
+                    View All Assessments
+                </button>
+
+                <button
+                    class="result-btn secondary"
+                    onclick="window.location.href='dashboard.html'"
+                >
+                    Dashboard
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        let assessmentId = null;
+
+        let questions = [];
+
+        let answers = {};
+
+
+        /* ==========================================
+           GET ASSESSMENT ID FROM URL
+        ========================================== */
+
+        function getAssessmentId() {
+
+            const params =
+                new URLSearchParams(window.location.search);
+
+            return params.get("id");
+
+        }
+
+
+        /* ==========================================
+           GET STUDENT ID
+        ========================================== */
+
+        function getStudentId() {
+
+            return localStorage.getItem("userId");
+
+        }
+
+
+        /* ==========================================
+           ESCAPE HTML
+        ========================================== */
+
+        function escapeHtml(text) {
+
+            if (
+                text === null ||
+                text === undefined
+            ) {
+                return "";
+            }
+
+            return String(text)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* ==========================================
+           SHOW ERROR
+        ========================================== */
+
+        function showError(message) {
+
+            const box =
+                document.getElementById("errorBox");
+
+            box.textContent = message;
+
+            box.style.display = "block";
+
+        }
+
+
+        /* ==========================================
+           LOAD ASSESSMENT
+        ========================================== */
+
+        async function loadAssessment() {
+
+            assessmentId =
+                getAssessmentId();
+
+
+            if (!assessmentId) {
+
+                showError(
+                    "No assessment was selected."
+                );
+
+                document.getElementById(
+                    "questionsContainer"
+                ).innerHTML = "";
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/student/assessments/" +
+                        assessmentId
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Assessment could not be loaded."
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                /*
+                 * Backend returns:
+                 *
+                 * {
+                 *   assessment: {...},
+                 *   questions: [...]
+                 * }
+                 */
+
+
+                const assessment =
+                    data.assessment || data;
+
+
+                questions =
+                    data.questions || [];
+
+
+                /* ASSESSMENT INFO */
+
+                document.getElementById(
+                    "assessmentTitle"
+                ).textContent =
+                    assessment.title || "Assessment";
+
+
+                document.getElementById(
+                    "assessmentDescription"
+                ).textContent =
+                    assessment.description ||
+                    "Test your knowledge and improve your skills.";
+
+
+                document.getElementById(
+                    "assessmentSkill"
+                ).textContent =
+                    assessment.skill || "General";
+
+
+                document.getElementById(
+                    "assessmentInfo"
+                ).style.display = "block";
+
+
+                if (questions.length === 0) {
+
+                    document.getElementById(
+                        "questionsContainer"
+                    ).innerHTML = `
+
+                        <div class="loading">
+
+                            This assessment does not have
+                            any questions yet.
+
+                        </div>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                document.getElementById(
+                    "progressWrapper"
+                ).style.display = "block";
+
+
+                document.getElementById(
+                    "submitSection"
+                ).style.display = "block";
+
+
+                renderQuestions();
+
+                updateProgress();
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                document.getElementById(
+                    "questionsContainer"
+                ).innerHTML = "";
+
+                showError(
+                    "Unable to load the assessment. Make sure the backend server is running."
+                );
+
+            }
+
+        }
+
+
+        /* ==========================================
+           RENDER QUESTIONS
+        ========================================== */
+
+        function renderQuestions() {
+
+            const container =
+                document.getElementById(
+                    "questionsContainer"
+                );
+
+
+            container.innerHTML =
+                questions.map(
+                    (question, index) => {
+
+                        return `
+
+                            <div
+                                class="question-card"
+                                data-question-id="${question.id}"
+                            >
+
+                                <div class="question-number">
+                                    QUESTION ${index + 1}
+                                </div>
+
+                                <div class="question-text">
+                                    ${escapeHtml(
+                                        question.question
+                                    )}
+                                </div>
+
+
+                                <label class="option">
+
+                                    <input
+                                        type="radio"
+                                        name="question-${question.id}"
+                                        value="A"
+                                        onchange="selectAnswer(${question.id}, 'A')"
+                                    >
+
+                                    <span>
+                                        <strong>A.</strong>
+                                        ${escapeHtml(
+                                            question.option_a
+                                        )}
+                                    </span>
+
+                                </label>
+
+
+                                <label class="option">
+
+                                    <input
+                                        type="radio"
+                                        name="question-${question.id}"
+                                        value="B"
+                                        onchange="selectAnswer(${question.id}, 'B')"
+                                    >
+
+                                    <span>
+                                        <strong>B.</strong>
+                                        ${escapeHtml(
+                                            question.option_b
+                                        )}
+                                    </span>
+
+                                </label>
+
+
+                                <label class="option">
+
+                                    <input
+                                        type="radio"
+                                        name="question-${question.id}"
+                                        value="C"
+                                        onchange="selectAnswer(${question.id}, 'C')"
+                                    >
+
+                                    <span>
+                                        <strong>C.</strong>
+                                        ${escapeHtml(
+                                            question.option_c
+                                        )}
+                                    </span>
+
+                                </label>
+
+
+                                <label class="option">
+
+                                    <input
+                                        type="radio"
+                                        name="question-${question.id}"
+                                        value="D"
+                                        onchange="selectAnswer(${question.id}, 'D')"
+                                    >
+
+                                    <span>
+                                        <strong>D.</strong>
+                                        ${escapeHtml(
+                                            question.option_d
+                                        )}
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        `;
+
+                    }
+                ).join("");
+
+        }
+
+
+        /* ==========================================
+           SELECT ANSWER
+        ========================================== */
+
+        function selectAnswer(
+            questionId,
+            answer
+        ) {
+
+            answers[questionId] =
+                answer;
+
+
+            const card =
+                document.querySelector(
+                    `[data-question-id="${questionId}"]`
+                );
+
+
+            if (card) {
+
+                const options =
+                    card.querySelectorAll(
+                        ".option"
+                    );
+
+
+                options.forEach(option => {
+
+                    option.classList.remove(
+                        "selected"
+                    );
+
+                });
+
+
+                const selected =
+                    card.querySelector(
+                        `input[value="${answer}"]`
+                    );
+
+
+                if (selected) {
+
+                    selected
+                        .closest(".option")
+                        .classList.add("selected");
+
+                }
+
+            }
+
+
+            updateProgress();
+
+        }
+
+
+        /* ==========================================
+           UPDATE PROGRESS
+        ========================================== */
+
+        function updateProgress() {
+
+            const total =
+                questions.length;
+
+            const answered =
+                Object.keys(answers).length;
+
+
+            const percentage =
+                total === 0
+                    ? 0
+                    : Math.round(
+                        (answered / total) * 100
+                    );
+
+
+            document.getElementById(
+                "progressText"
+            ).textContent =
+                answered +
+                " / " +
+                total +
+                " answered";
+
+
+            document.getElementById(
+                "progressPercent"
+            ).textContent =
+                percentage + "%";
+
+
+            document.getElementById(
+                "progressFill"
+            ).style.width =
+                percentage + "%";
+
+        }
+
+
+        /* ==========================================
+           SUBMIT ASSESSMENT
+        ========================================== */
+
+        async function submitAssessment() {
+
+            const studentId =
+                getStudentId();
+
+
+            if (!studentId) {
+
+                showError(
+                    "Please log in before submitting the assessment."
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * Make sure every question is answered.
+             */
+
+            if (
+                Object.keys(answers).length !==
+                questions.length
+            ) {
+
+                showError(
+                    "Please answer every question before submitting."
+                );
+
+                return;
+
+            }
+
+
+            const submitBtn =
+                document.getElementById(
+                    "submitBtn"
+                );
+
+
+            submitBtn.disabled = true;
+
+            submitBtn.textContent =
+                "Submitting...";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/student/assessments/" +
+                        assessmentId +
+                        "/submit",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                student_id:
+                                    Number(studentId),
+
+                                answers:
+                                    answers
+
+                            })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Submission failed."
+                    );
+
+                }
+
+
+                showResult(data);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                showError(
+                    error.message ||
+                    "Unable to submit assessment."
+                );
+
+
+                submitBtn.disabled = false;
+
+                submitBtn.textContent =
+                    "Submit Assessment";
+
+            }
+
+        }
+
+
+        /* ==========================================
+           SHOW RESULT
+        ========================================== */
+
+        function showResult(data) {
+
+            document.getElementById(
+                "assessmentInfo"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "progressWrapper"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "questionsContainer"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "submitSection"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "resultBox"
+            ).style.display = "block";
+
+
+            const score =
+                Number(
+                    data.score !== undefined
+                        ? data.score
+                        : data.percentage || 0
+                );
+
+
+            document.getElementById(
+                "resultScore"
+            ).textContent =
+                score + "%";
+
+
+            let message;
+
+
+            if (score >= 80) {
+
+                message =
+                    "Excellent performance! You have demonstrated strong knowledge of this skill.";
+
+            } else if (score >= 60) {
+
+                message =
+                    "Good work! You have a solid foundation, with some areas that can still be improved.";
+
+            } else {
+
+                message =
+                    "Keep learning and practicing. Use your result to identify the areas where you can improve.";
+
+            }
+
+
+            document.getElementById(
+                "resultMessage"
+            ).textContent =
+                message;
+
+        }
+
+
+        /* ==========================================
+           START
+        ========================================== */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadAssessment();
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
